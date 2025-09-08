@@ -25,5 +25,5 @@
 ##Phenotype data for Zea Trial 2.
 
 
-#
-##
+#1.A.1_pheno_check_noparents_DAO.R
+##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 2.
