@@ -1,3 +1,6 @@
+### David O'Donnell
+### Figure for QTL and Elevated Mexicana Introgression in Totontepec Maize
+
 dat <- structure(list(chromosome = 1:10, size = c(300927100L, 236965704L, 230537786L, 240523061L, 216206258L, 168818752L, 176024588L, 175698433L, 155721069L, 149097751L)), .Names = c("chromosome","size"), class = "data.frame", row.names = c(NA, -10L))
 marks <- structure(list(Chromosome = c(1L, 3L, 9L, 3L, 8L, 10L, 1L, 9L, 9L, 1L, 2L, 4L, 10L, 1L), 
                         Position = c(262937140L, 16566244L, 108296473L, 211685092L, 123844193L, 
