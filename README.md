@@ -11,4 +11,5 @@
 ##Zea trial 1 metadata, including all trait data captured for all individual plants per entry.
 
 #Zea-Trial-1_NDFA-AR_Table
-##
+##NDFA and AR trait values (average and standard error) table,  used in conjunction with R code '2024_R_script_Evolution-scatterplot', to generate Figure 3, '%NDFA and Aerial Root Node Variation among Zea Subgroups'.
+
