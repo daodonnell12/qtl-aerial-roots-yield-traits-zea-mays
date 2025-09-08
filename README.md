@@ -41,8 +41,9 @@
 ##QTL mapping code for Totontepec x MO17 biparental population.
 
 
-#
-##
+#2025_0831_QTL_figure_script-update.R
+##Code to generate Figure 4, 'QTL and Elevated Mexicana Introgression into Totontepec Maize'.
+##Code includes precise start and end bp coordinates for all QTL and elevated introgression regions.
 
 
 #2025_0803_mex-intro-Tpec_JRI_avg0.5_v2.txt
