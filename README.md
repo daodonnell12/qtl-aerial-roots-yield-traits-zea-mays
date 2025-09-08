@@ -27,3 +27,15 @@
 
 #1.A.1_pheno_check_noparents_DAO.R
 ##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 2.
+
+
+#QTL_mapping_code_B73.R
+##QTL mapping code for Totontepec x B73 biparental population.
+
+
+#QTL_mapping_code_LH82.R
+##QTL mapping code for Totontepec x LH82 biparental population.
+
+
+#QTL_mapping_code_MO17.R
+##QTL mapping code for Totontepec x MO17 biparental population.
