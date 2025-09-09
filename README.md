@@ -32,13 +32,22 @@
 #QTL_mapping_code_B73.R
 ##QTL mapping code for Totontepec x B73 biparental population.
 
+#genotypes_phenotypes_B73_052320.csv
+##Genotypes and phenotypes file for Totontepec x B73 population for QTL mapping.
+
 
 #QTL_mapping_code_LH82.R
 ##QTL mapping code for Totontepec x LH82 biparental population.
 
+#genotypes_phenotypes_LH82_052320
+##Genotypes and phenotypes file for Totontepec x LH82 population for QTL mapping.
+
 
 #QTL_mapping_code_MO17.R
 ##QTL mapping code for Totontepec x MO17 biparental population.
+
+#genotypes_phenotypes_MO17_052320
+##Genotypes and phenotypes file for Totontepec x MO17 population for QTL mapping.
 
 
 #2025_0831_QTL_figure_script-update.R
