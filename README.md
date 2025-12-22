@@ -17,6 +17,10 @@
 ##Zea trial 1 metadata, including all trait data captured for all individual plants per entry, with latitude and longitude position coordinates for each plant. Latitude = row number; longitude = plant position number along the row.
 
 
+#2025_Zea-Trial-1_Metadata_blup_DAO.R
+##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 1, using plant position in the field (latitude and longitude coordinates) as fixed effect and genotype as random effect.
+
+
 #Zea-Trial-1_NDFA-AR_Table
 ##NDFA and AR trait values (average and standard error) table,  used in conjunction with R code '2024_R_script_Evolution-scatterplot', to generate Figure 3, '%NDFA and Aerial Root Node Variation among Zea Subgroups'.
 
