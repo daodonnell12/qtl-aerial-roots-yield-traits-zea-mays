@@ -9,6 +9,10 @@
 ##Trait data (plot averages and standard error) for Zea Trial 1 entries.
 
 
+#Zea-Trial-1_Metadata.xlsx
+##Zea trial 1 metadata, including all trait data captured for all individual plants per entry.
+
+
 #Zea-Trial-1_Metadata_w-Long-Lat.csv
 ##Zea trial 1 metadata, including all trait data captured for all individual plants per entry, with latitude and longitude position coordinates for each plant. Latitude = row number; longitude = plant position number along the row.
 
