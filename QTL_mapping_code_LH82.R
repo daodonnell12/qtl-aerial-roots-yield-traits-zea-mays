@@ -247,88 +247,136 @@ summary(out_cim.em, threshold=2)
 # combine CIM chart
 
 #CIM all phenotypes
-out1_cim.em <- cim(mapthis, pheno.col = (1), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out2_cim.em <- cim(mapthis, pheno.col = (2), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out3_cim.em <- cim(mapthis, pheno.col = (3), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out4_cim.em <- cim(mapthis, pheno.col = (4), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out5_cim.em <- cim(mapthis, pheno.col = (5), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out6_cim.em <- cim(mapthis, pheno.col = (6), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out7_cim.em <- cim(mapthis, pheno.col = (7), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out8_cim.em <- cim(mapthis, pheno.col = (8), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out9_cim.em <- cim(mapthis, pheno.col = (9), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out10_cim.em <- cim(mapthis, pheno.col = (10), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#SC
+#out1_cim.em <- cim(mapthis, pheno.col = (1), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out2_cim.em <- cim(mapthis, pheno.col = (2), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out3_cim.em <- cim(mapthis, pheno.col = (3), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out4_cim.em <- cim(mapthis, pheno.col = (4), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+out5_cim.em <- cim(mapthis, pheno.col = (5), n.marcovar=3, method=c("em"), map.function=c("kosambi"))
+out5_cim.em.perm <- cim(mapthis, pheno.col = (5), n.marcovar=3, method=c("em"), map.function=c("kosambi"), n.perm = 10) #replace 1000 with 10 for expediency
+summary(out5_cim.em.perm)
+summary(out5_cim.em, threshold=3.91)
+out6_cim.em <- cim(mapthis, pheno.col = (6), n.marcovar=3, method=c("em"), map.function=c("kosambi"))
+out6_cim.em.perm <- cim(mapthis, pheno.col = (6), n.marcovar=3, method=c("em"), map.function=c("kosambi"), n.perm = 1000) #replace 1000 with 10 for expediency
+summary(out6_cim.em.perm)
+summary(out6_cim.em, threshold=5.56) #when using n.marcovar=3
+#summary(out6_cim.em, threshold=4.01) #when using n.marcovar=1
+
+#DT
+#out7_cim.em <- cim(mapthis, pheno.col = (7), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out8_cim.em <- cim(mapthis, pheno.col = (8), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out9_cim.em <- cim(mapthis, pheno.col = (9), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out10_cim.em <- cim(mapthis, pheno.col = (10), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out11_cim.em <- cim(mapthis, pheno.col = (11), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out12_cim.em <- cim(mapthis, pheno.col = (12), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out13_cim.em <- cim(mapthis, pheno.col = (13), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out14_cim.em <- cim(mapthis, pheno.col = (14), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out15_cim.em <- cim(mapthis, pheno.col = (15), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out16_cim.em <- cim(mapthis, pheno.col = (16), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+
+#DPS
+#out13_cim.em <- cim(mapthis, pheno.col = (13), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out14_cim.em <- cim(mapthis, pheno.col = (14), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out15_cim.em <- cim(mapthis, pheno.col = (15), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out16_cim.em <- cim(mapthis, pheno.col = (16), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out17_cim.em <- cim(mapthis, pheno.col = (17), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out18_cim.em <- cim(mapthis, pheno.col = (18), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out19_cim.em <- cim(mapthis, pheno.col = (19), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out20_cim.em <- cim(mapthis, pheno.col = (20), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out21_cim.em <- cim(mapthis, pheno.col = (21), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out22_cim.em <- cim(mapthis, pheno.col = (22), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#15NT1
+#out19_cim.em <- cim(mapthis, pheno.col = (19), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out20_cim.em <- cim(mapthis, pheno.col = (20), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out21_cim.em <- cim(mapthis, pheno.col = (21), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out22_cim.em <- cim(mapthis, pheno.col = (22), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out23_cim.em <- cim(mapthis, pheno.col = (23), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out24_cim.em <- cim(mapthis, pheno.col = (24), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out25_cim.em <- cim(mapthis, pheno.col = (25), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out26_cim.em <- cim(mapthis, pheno.col = (26), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out27_cim.em <- cim(mapthis, pheno.col = (27), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out28_cim.em <- cim(mapthis, pheno.col = (28), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#15NT2
+#out25_cim.em <- cim(mapthis, pheno.col = (25), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out26_cim.em <- cim(mapthis, pheno.col = (26), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out27_cim.em <- cim(mapthis, pheno.col = (27), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out28_cim.em <- cim(mapthis, pheno.col = (28), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out29_cim.em <- cim(mapthis, pheno.col = (29), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out30_cim.em <- cim(mapthis, pheno.col = (30), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out31_cim.em <- cim(mapthis, pheno.col = (31), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out32_cim.em <- cim(mapthis, pheno.col = (32), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out33_cim.em <- cim(mapthis, pheno.col = (33), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out34_cim.em <- cim(mapthis, pheno.col = (34), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#15NT3
+#out31_cim.em <- cim(mapthis, pheno.col = (31), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out32_cim.em <- cim(mapthis, pheno.col = (32), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out33_cim.em <- cim(mapthis, pheno.col = (33), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out34_cim.em <- cim(mapthis, pheno.col = (34), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out35_cim.em <- cim(mapthis, pheno.col = (35), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out36_cim.em <- cim(mapthis, pheno.col = (36), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out37_cim.em <- cim(mapthis, pheno.col = (37), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out38_cim.em <- cim(mapthis, pheno.col = (38), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out39_cim.em <- cim(mapthis, pheno.col = (39), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out40_cim.em <- cim(mapthis, pheno.col = (40), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out41_cim.em <- cim(mapthis, pheno.col = (41), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out42_cim.em <- cim(mapthis, pheno.col = (42), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out37_sim.em <- scanone(mapthis, pheno.col = (37), method="em")
-out38_sim.em <- scanone(mapthis, pheno.col = (38), method="em")
-out39_sim.em <- scanone(mapthis, pheno.col = (39), method="em")
-out40_sim.em <- scanone(mapthis, pheno.col = (40), method="em")
+
+#AR
+#out37_cim.em <- cim(mapthis, pheno.col = (37), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out38_cim.em <- cim(mapthis, pheno.col = (38), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out39_cim.em <- cim(mapthis, pheno.col = (39), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out40_cim.em <- cim(mapthis, pheno.col = (40), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+out41_cim.em <- cim(mapthis, pheno.col = (41), n.marcovar=3, method=c("em"), map.function=c("kosambi"))
+out41_cim.em.perm <- cim(mapthis, pheno.col = (41), n.marcovar=3, method=c("em"), map.function=c("kosambi"), n.perm = 10) #replace 1000 with 10 for expediency
+summary(out41_cim.em.perm)
+summary(out41_cim.em, threshold=3.91)
+out42_cim.em <- cim(mapthis, pheno.col = (42), n.marcovar=3, method=c("em"), map.function=c("kosambi"))
+out42_cim.em.perm <- cim(mapthis, pheno.col = (42), n.marcovar=3, method=c("em"), map.function=c("kosambi"), n.perm = 1000) #replace 1000 with 10 for expediency
+summary(out42_cim.em.perm)
+summary(out42_cim.em, threshold=5.49) #when using n.marcovar=3
+#summary(out42_cim.em, threshold=3.88) #when using n.marcovar=1
+
+#out37_sim.em <- scanone(mapthis, pheno.col = (37), method="em")
+#out38_sim.em <- scanone(mapthis, pheno.col = (38), method="em")
+#out39_sim.em <- scanone(mapthis, pheno.col = (39), method="em")
+#out40_sim.em <- scanone(mapthis, pheno.col = (40), method="em")
 out41_sim.em <- scanone(mapthis, pheno.col = (41), method="em")
 out42_sim.em <- scanone(mapthis, pheno.col = (42), method="em")
-out43_cim.em <- cim(mapthis, pheno.col = (43), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out44_cim.em <- cim(mapthis, pheno.col = (44), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out45_cim.em <- cim(mapthis, pheno.col = (45), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out46_cim.em <- cim(mapthis, pheno.col = (46), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out47_cim.em <- cim(mapthis, pheno.col = (47), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out48_cim.em <- cim(mapthis, pheno.col = (48), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out49_cim.em <- cim(mapthis, pheno.col = (49), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out50_cim.em <- cim(mapthis, pheno.col = (50), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out51_cim.em <- cim(mapthis, pheno.col = (51), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out52_cim.em <- cim(mapthis, pheno.col = (52), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#PDM
+#out43_cim.em <- cim(mapthis, pheno.col = (43), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out44_cim.em <- cim(mapthis, pheno.col = (44), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out45_cim.em <- cim(mapthis, pheno.col = (45), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out46_cim.em <- cim(mapthis, pheno.col = (46), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+out47_cim.em <- cim(mapthis, pheno.col = (47), n.marcovar=3, method=c("em"), map.function=c("kosambi"))
+out47_cim.em.perm <- cim(mapthis, pheno.col = (47), n.marcovar=3, method=c("em"), map.function=c("kosambi"), n.perm = 10) #replace 1000 with 10 for expediency
+summary(out47_cim.em.perm)
+summary(out47_cim.em, threshold=3.91)
+out48_cim.em <- cim(mapthis, pheno.col = (48), n.marcovar=3, method=c("em"), map.function=c("kosambi"))
+out48_cim.em.perm <- cim(mapthis, pheno.col = (48), n.marcovar=3, method=c("em"), map.function=c("kosambi"), n.perm = 1000) #replace 1000 with 10 for expediency
+summary(out48_cim.em.perm)
+summary(out48_cim.em, threshold=5.38) #when using n.marcovar=3
+#summary(out48_cim.em, threshold=4.02) #when using n.marcovar=1
+
+#PTNP
+#out49_cim.em <- cim(mapthis, pheno.col = (49), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out50_cim.em <- cim(mapthis, pheno.col = (50), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out51_cim.em <- cim(mapthis, pheno.col = (51), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out52_cim.em <- cim(mapthis, pheno.col = (52), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out53_cim.em <- cim(mapthis, pheno.col = (53), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out54_cim.em <- cim(mapthis, pheno.col = (54), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out55_cim.em <- cim(mapthis, pheno.col = (55), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out56_cim.em <- cim(mapthis, pheno.col = (56), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out57_cim.em <- cim(mapthis, pheno.col = (57), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out58_cim.em <- cim(mapthis, pheno.col = (58), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#PTN
+#out55_cim.em <- cim(mapthis, pheno.col = (55), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out56_cim.em <- cim(mapthis, pheno.col = (56), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out57_cim.em <- cim(mapthis, pheno.col = (57), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out58_cim.em <- cim(mapthis, pheno.col = (58), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out59_cim.em <- cim(mapthis, pheno.col = (59), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out60_cim.em <- cim(mapthis, pheno.col = (60), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out61_cim.em <- cim(mapthis, pheno.col = (61), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out62_cim.em <- cim(mapthis, pheno.col = (62), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out63_cim.em <- cim(mapthis, pheno.col = (63), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out64_cim.em <- cim(mapthis, pheno.col = (64), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#GDM
+#out61_cim.em <- cim(mapthis, pheno.col = (61), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out62_cim.em <- cim(mapthis, pheno.col = (62), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out63_cim.em <- cim(mapthis, pheno.col = (63), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out64_cim.em <- cim(mapthis, pheno.col = (64), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out65_cim.em <- cim(mapthis, pheno.col = (65), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out66_cim.em <- cim(mapthis, pheno.col = (66), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out67_cim.em <- cim(mapthis, pheno.col = (67), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out68_cim.em <- cim(mapthis, pheno.col = (68), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out69_cim.em <- cim(mapthis, pheno.col = (69), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out70_cim.em <- cim(mapthis, pheno.col = (70), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#GTNT
+#out67_cim.em <- cim(mapthis, pheno.col = (67), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out68_cim.em <- cim(mapthis, pheno.col = (68), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out69_cim.em <- cim(mapthis, pheno.col = (69), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out70_cim.em <- cim(mapthis, pheno.col = (70), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out71_cim.em <- cim(mapthis, pheno.col = (71), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out72_cim.em <- cim(mapthis, pheno.col = (72), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out73_cim.em <- cim(mapthis, pheno.col = (73), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out74_cim.em <- cim(mapthis, pheno.col = (74), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out75_cim.em <- cim(mapthis, pheno.col = (75), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
-out76_cim.em <- cim(mapthis, pheno.col = (76), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+
+#GTN
+#out73_cim.em <- cim(mapthis, pheno.col = (73), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out74_cim.em <- cim(mapthis, pheno.col = (74), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out75_cim.em <- cim(mapthis, pheno.col = (75), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
+#out76_cim.em <- cim(mapthis, pheno.col = (76), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out77_cim.em <- cim(mapthis, pheno.col = (77), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 out78_cim.em <- cim(mapthis, pheno.col = (78), n.marcovar=1, method=c("em"), map.function=c("kosambi"))
 
@@ -349,7 +397,13 @@ plot(out5_cim.em, show.marker.names=F,col =c("purple"))
 abline(3.91, 0, untf = FALSE)
 abline(2.79, 0, untf = FALSE, col=c("dark gray"))
 #abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Stand Count")
+title(main = "QTL - SC (T x LH82)")
+plot(out6_cim.em, show.marker.names=F,col =c("purple"))
+abline(4.01, 0, unft = FALSE) #for mcov1
+#abline(5.56, 0, untf = FALSE) #for mcov3
+abline(2.79, 0, untf = FALSE, col=c("dark gray"))
+#abline(2.41, 0, untf = FALSE, col=c("dark gray"))
+title(main = "QTL - SC (T x LH82)")
 
 #plot CIM SC chrs
 plot(out1_cim.em, out2_cim.em, out3_cim.em, show.marker.names=F,chr="1", col =c("Black", "blue", "red"))
@@ -375,6 +429,19 @@ summary(out4_cim.em, threshold=3.91)
 summary(out5_cim.em, threshold=3.91)
 summary(out6_cim.em, threshold=3.91)
 
+#QTL effect plot for SC blupNP
+hyper <- calc.genoprob(mapthis, step = 1)
+out <- scanone(hyper, method="hk")
+marker_name <- find.marker(hyper, chr=1, pos=213)
+effectplot(hyper, mname1 = marker_name, pheno.col=5, main=paste("QTL Effect at", marker_name), ylab=("Stand Counts"))
+
+#QTL effect plot for SC blupNPFC
+hyper <- calc.genoprob(mapthis, step = 1)
+out <- scanone(hyper, method="hk")
+marker_name <- find.marker(hyper, chr=1, pos=213)
+effectplot(hyper, mname1 = marker_name, pheno.col=6, main=paste("QTL Effect at", marker_name), ylab=("Stand Counts"))
+
+
 lodint(out.qtl_SC_avg_chr1, chr=1, expandtomarkers=TRUE)
 bayesint(out.qtl_SC_avg_chr1, chr=1, expandtomarkers=TRUE)
 lodint(out.qtl_SC_rep1_chr1, chr=1, expandtomarkers=TRUE)
@@ -389,115 +456,6 @@ lodint(out.qtl_SC_blupNPFC_chr1, chr=1, expandtomarkers=TRUE)
 bayesint(out.qtl_SC_blupNPFC_chr1, chr=1, expandtomarkers=TRUE)
 
 #Regression SC
-#Average
-summary(out1_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_SC_avg_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(213)) 
-summary(out.qtl_SC_avg_chr1 <- fitqtl(mapthis, qtl=qtl_SC_avg_chr1, pheno.col=1, formula=y~Q1))
-plot(qtl_SC_avg_chr1)
-
-#fit the model (with QTL in fixed positions)
-out.fq_SC_avg_chr1 <- fitqtl(mapthis, qtl=qtl_SC_avg_chr1, formula=y~Q1)
-summary(out.fq_SC_avg_chr1)
-
-#refine QTL and plot LOD profile
-rqtl_SC_avg_chr1 <- refineqtl(mapthis, qtl=qtl_SC_avg_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_SC_avg_chr1
-out.fq2_SC_avg_chr1 <- fitqtl(mapthis, qtl=qtl_SC_avg_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_SC_avg_chr1)
-plotLodProfile(rqtl_SC_avg_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray"))
-#abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Stand Count (Average Rep1 + Rep2)")
-
-#rep1
-summary(out2_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_SC_rep1_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(136)) 
-summary(out.qtl_SC_rep1_chr1 <- fitqtl(mapthis, qtl=qtl_SC_rep1_chr1, pheno.col=2, formula=y~Q1))
-plot(qtl_SC_rep1_chr1)
-
-#fit the model (with QTL in fixed positions)
-out.fq_SC_rep1_chr1 <- fitqtl(mapthis, qtl=qtl_SC_rep1_chr1, formula=y~Q1)
-summary(out.fq_SC_rep1_chr1)
-
-#refine QTL and plot LOD profile
-rqtl_SC_rep1_chr1 <- refineqtl(mapthis, qtl=qtl_SC_rep1_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_SC_rep1_chr1
-out.fq2_SC_rep1_chr1 <- fitqtl(mapthis, qtl=qtl_SC_rep1_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_SC_rep1_chr1)
-plotLodProfile(rqtl_SC_rep1_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray"))
-#abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Stand Count (Rep1)")
-
-#rep2
-summary(out3_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_SC_rep2_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(216)) 
-summary(out.qtl_SC_rep2_chr1 <- fitqtl(mapthis, qtl=qtl_SC_rep2_chr1, pheno.col=3, formula=y~Q1))
-plot(qtl_SC_rep2_chr1)
-
-#fit the model (with QTL in fixed positions)
-out.fq_SC_rep2_chr1 <- fitqtl(mapthis, qtl=qtl_SC_rep2_chr1, formula=y~Q1)
-summary(out.fq_SC_rep2_chr1)
-
-#refine QTL and plot LOD profile
-rqtl_SC_rep2_chr1 <- refineqtl(mapthis, qtl=qtl_SC_rep2_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_SC_rep2_chr1
-out.fq2_SC_rep2_chr1 <- fitqtl(mapthis, qtl=qtl_SC_rep2_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_SC_rep2_chr1)
-plotLodProfile(rqtl_SC_rep2_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray"))
-#abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Stand Count (Rep2)")
-
-#blup
-summary(out4_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_SC_blup_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(213)) 
-summary(out.qtl_SC_blup_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blup_chr1, pheno.col=4, formula=y~Q1))
-plot(qtl_SC_blup_chr1)
-
-#fit the model (with QTL in fixed positions)
-out.fq_SC_blup_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blup_chr1, formula=y~Q1)
-summary(out.fq_SC_blup_chr1)
-
-#refine QTL and plot LOD profile
-rqtl_SC_blup_chr1 <- refineqtl(mapthis, qtl=qtl_SC_blup_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_SC_blup_chr1
-out.fq2_SC_blup_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blup_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_SC_blup_chr1)
-plotLodProfile(rqtl_SC_blup_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray"))
-#abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Stand Count (Average Rep1 + Rep2, BLUP)")
-
-#blup no parents
-summary(out5_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_SC_blupNP_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(213)) 
-summary(out.qtl_SC_blupNP_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blupNP_chr1, pheno.col=5, formula=y~Q1))
-plot(qtl_SC_blupNP_chr1)
-
-#fit the model (with QTL in fixed positions)
-out.fq_SC_blupNP_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blupNP_chr1, formula=y~Q1)
-summary(out.fq_SC_blupNP_chr1)
-
-#refine QTL and plot LOD profile
-rqtl_SC_blupNP_chr1 <- refineqtl(mapthis, qtl=qtl_SC_blupNP_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_SC_blupNP_chr1
-out.fq2_SC_blupNP_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blupNP_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_SC_blupNP_chr1)
-plotLodProfile(rqtl_SC_blupNP_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray"))
-#abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Stand Count (Average Rep1 + Rep2, BLUP NP)")
 
 #blup no parents and family as covariates
 summary(out6_cim.em, threshold=3.91)
@@ -510,32 +468,6 @@ plot(qtl_SC_blupNPFC_chr1)
 out.fq_SC_blupNPFC_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blupNPFC_chr1, formula=y~Q1)
 summary(out.fq_SC_blupNPFC_chr1)
 
-#refine QTL and plot LOD profile
-rqtl_SC_blupNPFC_chr1 <- refineqtl(mapthis, qtl=qtl_SC_blupNPFC_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_SC_blupNPFC_chr1
-out.fq2_SC_blupNPFC_chr1 <- fitqtl(mapthis, qtl=qtl_SC_blupNPFC_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_SC_blupNPFC_chr1)
-plotLodProfile(rqtl_SC_blupNPFC_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray"))
-#abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Stand Count (Average Rep1 + Rep2, BLUP NPFC)")
-
-#obtain lod support interval coordinates
-lodint(rqtl_SC_avg_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_SC_rep1_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_SC_rep2_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_SC_blup_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_SC_blupNP_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_SC_blupNPFC_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-
-#obtain Bayesian credible interval
-bayesint(rqtl_SC_avg_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_SC_rep1_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_SC_rep2_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_SC_blup_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_SC_blupNP_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_SC_blupNPFC_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
 
 #plot CIM DT
 plot(out7_cim.em, out8_cim.em, out9_cim.em, show.marker.names=F,col =c("Black", "blue", "red"))
@@ -584,33 +516,6 @@ summary(out16_cim.em, threshold=3.91)
 summary(out17_cim.em, threshold=3.91)
 summary(out18_cim.em, threshold=3.91)
 
-#Regression DPS
-#rep2
-summary(out15_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_DPS_rep2 <- makeqtl(mapthis, chr=c(10), pos=c(99.8)) 
-summary(out.qtl_DPS_rep2 <- fitqtl(mapthis, qtl=qtl_DPS_rep2, pheno.col=15, formula=y~Q1))
-plot(qtl_DPS_rep2)
-
-#fit the model (with QTL in fixed positions)
-out.fq_DPS_rep2 <- fitqtl(mapthis, qtl=qtl_DPS_rep2, formula=y~Q1)
-summary(out.fq_DPS_rep2)
-
-#refine QTL and plot LOD profile
-rqtl_DPS_rep2 <- refineqtl(mapthis, qtl=qtl_DPS_rep2, formula=y~Q1, verbose=FALSE)
-rqtl_DPS_rep2
-out.fq2_DPS_rep2 <- fitqtl(mapthis, qtl=qtl_DPS_rep2, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_DPS_rep2)
-plotLodProfile(rqtl_DPS_rep2)
-abline(3.91, 0, untf = FALSE)
-abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Days to Pollen Shed (Rep2)")
-
-#obtain lod interval coordinates
-lodint(rqtl_DPS_rep2, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-
-#obtain Bayesian credible interval
-bayesint(rqtl_DPS_rep2, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
 
 #plot CIM 15NT1
 plot(out19_cim.em, out20_cim.em, out21_cim.em, show.marker.names=F,col =c("Black", "blue", "red"))
@@ -634,7 +539,6 @@ plot(out28_cim.em, out29_cim.em, out30_cim.em, show.marker.names=F,col =c("brown
 abline(3.91, 0, untf = FALSE)
 title(main = "LH82 - 15N Time-point 2")
 
-#plot CIM 15NT2 chrs
 
 #plot CIM 15NT3
 plot(out31_cim.em, out32_cim.em, out33_cim.em, show.marker.names=F,col =c("Black", "blue", "red"))
@@ -665,7 +569,13 @@ plot(out41_cim.em, show.marker.names=F,col =c("purple"))
 abline(3.91, 0, untf = FALSE)
 abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
 #abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop from lod threshold
-title(main = "LH82 - Aerial Root Nodes")
+title(main = "QTL - AR (T x LH82)")
+plot(out42_cim.em, show.marker.names=F,col =c("purple"))
+abline(5.49, 0, untf = FALSE) #mcovar=3
+abline(3.88, 0, untf = FALSE) #mcovar=1
+abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
+#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop from lod threshold
+title(main = "QTL - AR (T x LH82)")
 
 #plot CIM AR chrs
 plot(out37_cim.em, out38_cim.em, out39_cim.em, show.marker.names=F,chr="1", col =c("Black", "blue", "red"))
@@ -719,199 +629,23 @@ summary(out40_cim.em, threshold=3.91)
 summary(out41_cim.em, threshold=3.91)
 summary(out42_cim.em, threshold=3.91)
 
+#QTL effect plot for AR blupNP
+hyper <- calc.genoprob(mapthis, step = 1)
+out <- scanone(hyper, method="hk")
+marker_name <- find.marker(hyper, chr=1, pos=251.5)
+effectplot(hyper, mname1 = marker_name, pheno.col=41, main=paste("QTL Effect at", marker_name), ylab=("Aerial Root Nodes"))
+marker_name <- find.marker(hyper, chr=9, pos=97.1)
+effectplot(hyper, mname1 = marker_name, pheno.col=41, main=paste("QTL Effect at", marker_name), ylab=("Aerial Root Nodes"))
+
+#QTL effect plot for AR blupNPFC
+hyper <- calc.genoprob(mapthis, step = 1)
+out <- scanone(hyper, method="hk")
+marker_name <- find.marker(hyper, chr=1, pos=251.5)
+effectplot(hyper, mname1 = marker_name, pheno.col=42, main=paste("QTL Effect at", marker_name), ylab=("Aerial Root Nodes"))
+marker_name <- find.marker(hyper, chr=9, pos=97.1)
+effectplot(hyper, mname1 = marker_name, pheno.col=42, main=paste("QTL Effect at", marker_name), ylab=("Aerial Root Nodes"))
+
 #Regression AR
-#Average
-summary(out37_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_AR_avg_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(251.5))
-qtl_AR_avg_chr9 <- makeqtl(mapthis, chr=c(9), pos=c(97.1)) 
-qtl_AR_avg <- makeqtl(mapthis, chr=c(1, 9), pos=c(251.1, 97.1))
-summary(out.qtl_AR_avg_chr1 <- fitqtl(mapthis, qtl=qtl_AR_avg_chr1, pheno.col=37, formula=y~Q1))
-summary(out.qtl_AR_avg_chr9 <- fitqtl(mapthis, qtl=qtl_AR_avg_chr9, pheno.col=37, formula=y~Q1))
-summary(out.qtl_AR_avg <- fitqtl(mapthis, qtl=qtl_AR_avg, pheno.col=37, formula=y~Q1+Q2))
-plot(qtl_AR_avg_chr1)
-plot(qtl_AR_avg_chr9)
-plot(qtl_AR_avg)
-
-#fit the model (with QTL in fixed positions)
-out.fq_AR_avg_chr1 <- fitqtl(mapthis, qtl=qtl_AR_avg_chr1, formula=y~Q1)
-summary(out.fq_AR_avg_chr1)
-out.fq_AR_avg_chr9 <- fitqtl(mapthis, qtl=qtl_AR_avg_chr9, formula=y~Q1)
-summary(out.fq_AR_avg_chr9)
-out.fq_AR_avg <- fitqtl(mapthis, qtl=qtl_AR_avg, formula=y~Q1+Q2)
-summary(out.fq_AR_avg)
-
-#refine QTL and plot LOD profile
-#uses an iterative algorithm to refine the locations of QTL in a multiple-QTL model
-#with the aim of obtaining the maximum likelihood estimates of the QTL positions
-
-rqtl_AR_avg_chr1 <- refineqtl(mapthis, qtl=qtl_AR_avg_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_AR_avg_chr1
-out.fq2_AR_avg_chr1 <- fitqtl(mapthis, qtl=qtl_AR_avg_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_avg_chr1)
-plotLodProfile(rqtl_AR_avg_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2)")
-
-rqtl_AR_avg_chr9 <- refineqtl(mapthis, qtl=qtl_AR_avg_chr9, formula=y~Q1, verbose=FALSE)
-rqtl_AR_avg_chr9
-out.fq2_AR_avg_chr9 <- fitqtl(mapthis, qtl=qtl_AR_avg_chr9, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_avg_chr9)
-plotLodProfile(rqtl_AR_avg_chr9)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2)")
-
-rqtl_AR_avg <- refineqtl(mapthis, qtl=qtl_AR_avg, formula=y~Q1+Q2, verbose=FALSE)
-rqtl_AR_avg
-out.fq2_AR_avg <- fitqtl(mapthis, qtl=qtl_AR_avg, formula=y~Q1+Q2, dropone=FALSE)
-summary(out.fq2_AR_avg)
-plotLodProfile(rqtl_AR_avg)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2)")
-
-#test pairwise interactions between QTL
-addint(mapthis, qtl=rqtl_AR_avg, formula=y~Q1+Q2)
-
-#rep1
-summary(out38_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_AR_rep1_chr2 <- makeqtl(mapthis, chr=c(2), pos=c(147)) 
-summary(out.qtl_AR_rep1_chr2 <- fitqtl(mapthis, qtl=qtl_AR_rep1_chr2, pheno.col=38, formula=y~Q1))
-plot(qtl_AR_rep1_chr2)
-
-#fit the model (with QTL in fixed positions)
-out.fq_AR_rep1_chr2 <- fitqtl(mapthis, qtl=qtl_AR_rep1_chr2, formula=y~Q1)
-summary(out.fq_AR_rep1_chr2)
-
-#refine QTL and plot LOD profile
-rqtl_AR_rep1_chr2 <- refineqtl(mapthis, qtl=qtl_AR_rep1_chr2, formula=y~Q1, verbose=FALSE)
-rqtl_AR_rep1_chr2
-out.fq2_AR_rep1_chr2 <- fitqtl(mapthis, qtl=qtl_AR_rep1_chr2, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_rep1_chr2)
-plotLodProfile(rqtl_AR_rep1_chr2)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Rep1)")
-
-#rep2
-summary(out39_cim.em, threshold=3.91)
-
-#blup
-summary(out40_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128) #QTL object containing imputed genotypes, with 128 imputations
-qtl_AR_blup_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(251.5))
-qtl_AR_blup_chr9 <- makeqtl(mapthis, chr=c(9), pos=c(97.1)) 
-qtl_AR_blup <- makeqtl(mapthis, chr=c(1, 9), pos=c(251.1, 97.1))
-summary(out.qtl_AR_blup_chr1 <- fitqtl(mapthis, qtl=qtl_AR_blup_chr1, pheno.col=40, formula=y~Q1))
-summary(out.qtl_AR_blup_chr9 <- fitqtl(mapthis, qtl=qtl_AR_blup_chr9, pheno.col=40, formula=y~Q1))
-summary(out.qtl_AR_blup <- fitqtl(mapthis, qtl=qtl_AR_blup, pheno.col=40, formula=y~Q1+Q2))
-plot(qtl_AR_blup_chr1)
-plot(qtl_AR_blup_chr9)
-plot(qtl_AR_blup)
-
-#fit the model (with QTL in fixed positions)
-out.fq_AR_blup_chr1 <- fitqtl(mapthis, qtl=qtl_AR_blup_chr1, formula=y~Q1)
-summary(out.fq_AR_blup_chr1)
-out.fq_AR_blup_chr9 <- fitqtl(mapthis, qtl=qtl_AR_blup_chr9, formula=y~Q1)
-summary(out.fq_AR_blup_chr9)
-out.fq_AR_blup <- fitqtl(mapthis, qtl=qtl_AR_blup, formula=y~Q1+Q2)
-summary(out.fq_AR_blup)
-
-#refine QTL and plot LOD profile
-rqtl_AR_blup_chr1 <- refineqtl(mapthis, qtl=qtl_AR_blup_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_AR_blup_chr1
-out.fq2_AR_blup_chr1 <- fitqtl(mapthis, qtl=qtl_AR_blup_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_blup_chr1)
-plotLodProfile(rqtl_AR_blup_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP)")
-
-rqtl_AR_blup_chr9 <- refineqtl(mapthis, qtl=qtl_AR_blup_chr9, formula=y~Q1, verbose=FALSE)
-rqtl_AR_blup_chr9
-out.fq2_AR_blup_chr9 <- fitqtl(mapthis, qtl=qtl_AR_blup_chr9, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_blup_chr9)
-plotLodProfile(rqtl_AR_blup_chr9)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP)")
-
-rqtl_AR_blup <- refineqtl(mapthis, qtl=qtl_AR_blup, formula=y~Q1+Q2, verbose=FALSE)
-rqtl_AR_blup
-out.fq2_AR_blup <- fitqtl(mapthis, qtl=qtl_AR_blup, formula=y~Q1+Q2, dropone=FALSE)
-summary(out.fq2_AR_blup)
-plotLodProfile(rqtl_AR_blup)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP)")
-
-#test pairwise interactions between QTL
-addint(mapthis, qtl=rqtl_AR_blup, formula=y~Q1+Q2)
-
-#blup no parents
-summary(out41_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_AR_blupNP_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(251.5))
-qtl_AR_blupNP_chr9 <- makeqtl(mapthis, chr=c(9), pos=c(97.1))
-qtl_AR_blupNP <- makeqtl(mapthis, chr=c(1, 9), pos=c(251.1, 97.1))
-summary(out.qtl_AR_blupNP_chr1 <- fitqtl(mapthis, qtl=qtl_AR_blupNP_chr1, pheno.col=41, formula=y~Q1))
-summary(out.qtl_AR_blupNP_chr9 <- fitqtl(mapthis, qtl=qtl_AR_blupNP_chr9, pheno.col=41, formula=y~Q1))
-summary(out.qtl_AR_blupNP <- fitqtl(mapthis, qtl=qtl_AR_blupNP, pheno.col=41, formula=y~Q1+Q2))
-plot(qtl_AR_blupNP_chr1)
-plot(qtl_AR_blupNP_chr9)
-plot(qtl_AR_blupNP)
-
-#fit the model (with QTL in fixed positions)
-out.fq_AR_blupNP_chr1 <- fitqtl(mapthis, qtl=qtl_AR_blupNP_chr1, formula=y~Q1)
-summary(out.fq_AR_blupNP_chr1)
-out.fq_AR_blupNP_chr9 <- fitqtl(mapthis, qtl=qtl_AR_blupNP_chr9, formula=y~Q1)
-summary(out.fq_AR_blupNP_chr9)
-out.fq_AR_blupNP <- fitqtl(mapthis, qtl=qtl_AR_blupNP, formula=y~Q1+Q2)
-summary(out.fq_AR_blupNP)
-
-#refine QTL and plot LOD profile
-rqtl_AR_blupNP_chr1 <- refineqtl(mapthis, qtl=qtl_AR_blupNP_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_AR_blupNP_chr1
-out.fq2_AR_blupNP_chr1 <- fitqtl(mapthis, qtl=qtl_AR_blupNP_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_blupNP_chr1)
-plotLodProfile(rqtl_AR_blupNP_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP NP)")
-
-rqtl_AR_blupNP_chr9 <- refineqtl(mapthis, qtl=qtl_AR_blupNP_chr9, formula=y~Q1, verbose=FALSE)
-rqtl_AR_blupNP_chr9
-out.fq2_AR_blupNP_chr9 <- fitqtl(mapthis, qtl=qtl_AR_blupNP_chr9, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_blupNP_chr9)
-plotLodProfile(rqtl_AR_blupNP_chr9)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP NP)")
-
-rqtl_AR_blupNP <- refineqtl(mapthis, qtl=qtl_AR_blupNP, formula=y~Q1+Q2, verbose=FALSE)
-rqtl_AR_blupNP
-out.fq2_AR_blupNP <- fitqtl(mapthis, qtl=qtl_AR_blupNP, formula=y~Q1+Q2, dropone=FALSE)
-summary(out.fq2_AR_blupNP)
-plotLodProfile(rqtl_AR_blupNP)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP NP)")
-
-#test pairwise interactions between QTL
-addint(mapthis, qtl=rqtl_AR_blupNP, formula=y~Q1+Q2)
 
 #blup no parents and family as covariates
 summary(out42_cim.em, threshold=3.91)
@@ -934,61 +668,6 @@ summary(out.fq_AR_blupNPFC_chr9)
 out.fq_AR_blupNPFC <- fitqtl(mapthis, qtl=qtl_AR_blupNPFC, formula=y~Q1+Q2)
 summary(out.fq_AR_blupNPFC)
 
-#refine QTL and plot LOD profile
-rqtl_AR_blupNPFC_chr1 <- refineqtl(mapthis, qtl=qtl_AR_blupNPFC_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_AR_blupNPFC_chr1
-out.fq2_AR_blupNPFC_chr1 <- fitqtl(mapthis, qtl=qtl_AR_blupNPFC_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_blupNPFC_chr1)
-plotLodProfile(rqtl_AR_blupNPFC_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP NPFC)")
-
-rqtl_AR_blupNPFC_chr9 <- refineqtl(mapthis, qtl=qtl_AR_blupNPFC_chr9, formula=y~Q1, verbose=FALSE)
-rqtl_AR_blupNPFC_chr9
-out.fq2_AR_blupNPFC_chr9 <- fitqtl(mapthis, qtl=qtl_AR_blupNPFC_chr9, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_AR_blupNPFC_chr9)
-plotLodProfile(rqtl_AR_blupNPFC_chr9)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP NPFC)")
-
-rqtl_AR_blupNPFC <- refineqtl(mapthis, qtl=qtl_AR_blupNPFC, formula=y~Q1+Q2, verbose=FALSE)
-rqtl_AR_blupNPFC
-out.fq2_AR_blupNPFC <- fitqtl(mapthis, qtl=qtl_AR_blupNPFC, formula=y~Q1+Q2, dropone=FALSE)
-summary(out.fq2_AR_blupNPFC)
-plotLodProfile(rqtl_AR_blupNPFC)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Aerial Root Nodes (Average Rep1 + Rep2, BLUP NPFC)")
-
-#test pairwise interactions between QTL
-addint(mapthis, qtl=rqtl_AR_blupNPFC, formula=y~Q1+Q2)
-
-#obtain lod interval coordinates
-lodint(rqtl_AR_avg_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_blup_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_blupNP_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_blupNPFC_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_rep1_chr2, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_avg_chr9, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_blup_chr9, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_blupNP_chr9, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_AR_blupNPFC_chr9, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-
-#obtain Bayesian credible interval
-bayesint(rqtl_AR_avg_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_blup_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_blupNP_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_blupNPFC_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_rep1_chr2, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_avg_chr9, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_blup_chr9, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_blupNP_chr9, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_AR_blupNPFC_chr9, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
 
 #plot CIM PDM
 plot(out43_cim.em, out44_cim.em, out45_cim.em, show.marker.names=F,col =c("Black", "blue", "red"))
@@ -998,12 +677,18 @@ plot(out46_cim.em, out47_cim.em, out48_cim.em, show.marker.names=F,col =c("brown
 abline(3.91, 0, untf = FALSE)
 abline(2.58, 0, untf = FALSE, col=c("dark gray")) #lod interval
 #abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Plant Dry Mass")
+title(main = "QTL - PDM (T x LH82)")
 plot(out47_cim.em, show.marker.names=F,col =c("purple"))
 abline(3.91, 0, untf = FALSE)
 abline(2.58, 0, untf = FALSE, col=c("dark gray")) #lod interval
 #abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Plant Dry Mass")
+title(main = "QTL - PDM (T x LH82)")
+plot(out48_cim.em, show.marker.names=F,col =c("purple"))
+#abline(3.91, 0, untf = FALSE)
+abline(4.01, 0, untf = FALSE) #mcovar=1
+abline(2.58, 0, untf = FALSE, col=c("dark gray")) #lod interval
+#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
+title(main = "QTL - PDM (T x LH82)")
 
 #plot CIM PDM chrs
 plot(out43_cim.em, out44_cim.em, out45_cim.em, show.marker.names=F,chr="10", col =c("Black", "blue", "red"))
@@ -1038,48 +723,19 @@ summary(out46_cim.em, threshold=3.91)
 summary(out47_cim.em, threshold=3.91)
 summary(out48_cim.em, threshold=3.91)
 
+#QTL effect plot for PDM blupNP
+hyper <- calc.genoprob(mapthis, step = 1)
+out <- scanone(hyper, method="hk")
+marker_name <- find.marker(hyper, chr=10, pos=185)
+effectplot(hyper, mname1 = marker_name, pheno.col=47, main=paste("QTL Effect at", marker_name), ylab=("Plant Dry Mass"))
+
+#QTL effect plot for PDM blupNPFC
+hyper <- calc.genoprob(mapthis, step = 1)
+out <- scanone(hyper, method="hk")
+marker_name <- find.marker(hyper, chr=10, pos=185)
+effectplot(hyper, mname1 = marker_name, pheno.col=48, main=paste("QTL Effect at", marker_name), ylab=("Plant Dry Mass"))
+
 #Regression PDM
-#blup
-summary(out46_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_PDM_blup_chr10 <- makeqtl(mapthis, chr=c(10), pos=c(185))
-summary(out.qtl_PDM_blup_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blup_chr10, pheno.col=46, formula=y~Q1))
-plot(qtl_PDM_blup_chr10)
-
-#fit the model (with QTL in fixed positions)
-out.fq_PDM_blup_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blup_chr10, formula=y~Q1)
-summary(out.fq_PDM_blup_chr10)
-
-#refine QTL and plot LOD profile
-rqtl_PDM_blup_chr10 <- refineqtl(mapthis, qtl=qtl_PDM_blup_chr10, formula=y~Q1, verbose=FALSE)
-rqtl_PDM_blup_chr10
-out.fq2_PDM_blup_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blup_chr10, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_PDM_blup_chr10)
-plotLodProfile(rqtl_PDM_blup_chr10)
-abline(3.91, 0, untf = FALSE)
-abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Plant Dry Mass (Average Rep1 + Rep2, BLUP)")
-
-#blup no parents
-summary(out47_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_PDM_blupNP_chr10 <- makeqtl(mapthis, chr=c(10), pos=c(185))
-summary(out.qtl_PDM_blupNP_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blupNP_chr10, pheno.col=47, formula=y~Q1))
-plot(qtl_PDM_blupNP_chr10)
-
-#fit the model (with QTL in fixed positions)
-out.fq_PDM_blupNP_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blupNP_chr10, formula=y~Q1)
-summary(out.fq_PDM_blupNP_chr10)
-
-#refine QTL and plot LOD profile
-rqtl_PDM_blupNP_chr10 <- refineqtl(mapthis, qtl=qtl_PDM_blupNP_chr10, formula=y~Q1, verbose=FALSE)
-rqtl_PDM_blupNP_chr10
-out.fq2_PDM_blupNP_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blupNP_chr10, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_PDM_blupNP_chr10)
-plotLodProfile(rqtl_PDM_blupNP_chr10)
-abline(3.91, 0, untf = FALSE)
-abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Plant Dry Mass (Average Rep1 + Rep2, BLUP NP)")
 
 #blup no parents and family as covariates
 summary(out48_cim.em, threshold=3.91)
@@ -1092,25 +748,6 @@ plot(qtl_PDM_blupNPFC_chr10)
 out.fq_PDM_blupNPFC_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blupNPFC_chr10, formula=y~Q1)
 summary(out.fq_PDM_blupNPFC_chr10)
 
-#refine QTL and plot LOD profile
-rqtl_PDM_blupNPFC_chr10 <- refineqtl(mapthis, qtl=qtl_PDM_blupNPFC_chr10, formula=y~Q1, verbose=FALSE)
-rqtl_PDM_blupNPFC_chr10
-out.fq2_PDM_blupNPFC_chr10 <- fitqtl(mapthis, qtl=qtl_PDM_blupNPFC_chr10, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_PDM_blupNPFC_chr10)
-plotLodProfile(rqtl_PDM_blupNPFC_chr10)
-abline(3.91, 0, untf = FALSE)
-abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Plant Dry Mass (Average Rep1 + Rep2, BLUP NPFC)")
-
-#obtain lod interval coordinates
-lodint(rqtl_PDM_blup_chr10, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_PDM_blupNP_chr10, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-lodint(rqtl_PDM_blupNPFC_chr10, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-
-#obtain Bayesian credible interval
-bayesint(rqtl_PDM_blup_chr10, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_PDM_blupNP_chr10, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
-bayesint(rqtl_PDM_blupNPFC_chr10, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
 
 #plot CIM PTNP
 plot(out49_cim.em, out50_cim.em, out51_cim.em, show.marker.names=F,col =c("Black", "blue", "red"))
@@ -1147,34 +784,6 @@ summary(out52_cim.em, threshold=3.91)
 summary(out53_cim.em, threshold=3.91)
 summary(out54_cim.em, threshold=3.91)
 
-#Regression PTNP
-#rep1
-summary(out50_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_PTNP_rep1_chr1 <- makeqtl(mapthis, chr=c(1), pos=c(212))
-summary(out.qtl_PTNP_rep1_chr1 <- fitqtl(mapthis, qtl=qtl_PTNP_rep1_chr1, pheno.col=50, formula=y~Q1))
-plot(qtl_PTNP_rep1_chr1)
-
-#fit the model (with QTL in fixed positions)
-out.fq_PTNP_rep1_chr1 <- fitqtl(mapthis, qtl=qtl_PTNP_rep1_chr1, formula=y~Q1)
-summary(out.fq_PTNP_rep1_chr1)
-
-#refine QTL and plot LOD profile
-rqtl_PTNP_rep1_chr1 <- refineqtl(mapthis, qtl=qtl_PTNP_rep1_chr1, formula=y~Q1, verbose=FALSE)
-rqtl_PTNP_rep1_chr1
-out.fq2_PTNP_rep1_chr1 <- fitqtl(mapthis, qtl=qtl_PTNP_rep1_chr1, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_PTNP_rep1_chr1)
-plotLodProfile(rqtl_PTNP_rep1_chr1)
-abline(3.91, 0, untf = FALSE)
-abline(2.79, 0, untf = FALSE, col=c("dark gray")) #lod interval
-#abline(2.41, 0, untf = FALSE, col=c("dark gray")) #1.5 drop lod threshold
-title(main = "LH82 - Plant Total Nitrogen Percentage (Rep1)")
-
-#obtain lod interval coordinates
-lodint(rqtl_PTNP_rep1_chr1, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-
-#obtain Bayesian credible interval
-bayesint(rqtl_PTNP_rep1_chr1, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
 
 #plot CIM PTN
 plot(out55_cim.em, out56_cim.em, out57_cim.em, show.marker.names=F,col =c("Black", "blue", "red"))
@@ -1212,33 +821,6 @@ summary(out58_cim.em, threshold=3.91)
 summary(out59_cim.em, threshold=3.91)
 summary(out60_cim.em, threshold=3.91)
 
-#Regression PTN
-#rep2
-summary(out57_cim.em, threshold=3.91)
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_PTN_rep2_chr9 <- makeqtl(mapthis, chr=c(9), pos=c(93.3))
-summary(out.qtl_PTN_rep2_chr9 <- fitqtl(mapthis, qtl=qtl_PTN_rep2_chr9, pheno.col=57, formula=y~Q1))
-plot(qtl_PTN_rep2_chr9)
-
-#fit the model (with QTL in fixed positions)
-out.fq_PTN_rep2_chr9 <- fitqtl(mapthis, qtl=qtl_PTN_rep2_chr9, formula=y~Q1)
-summary(out.fq_PTN_rep2_chr9)
-
-#refine QTL and plot LOD profile
-rqtl_PTN_rep2_chr9 <- refineqtl(mapthis, qtl=qtl_PTN_rep2_chr9, formula=y~Q1, verbose=FALSE)
-rqtl_PTN_rep2_chr9
-out.fq2_PTN_rep2_chr9 <- fitqtl(mapthis, qtl=qtl_PTN_rep2_chr9, formula=y~Q1, dropone=FALSE)
-summary(out.fq2_PTN_rep2_chr9)
-plotLodProfile(rqtl_PTN_rep2_chr9)
-abline(3.91, 0, untf = FALSE)
-abline(2.41, 0, untf = FALSE, col=c("dark gray"))
-title(main = "LH82 - Plant Total Nitrogen (Rep2)")
-
-#obtain lod interval coordinates
-lodint(rqtl_PTN_rep2_chr9, chr, qtl.index=1, drop=1.5, lodcolumn=1, expandtomarkers=FALSE)
-
-#obtain Bayesian credible interval
-bayesint(rqtl_PTN_rep2_chr9, chr, qtl.index=1, prob=0.95, lodcolumn=1, expandtomarkers=FALSE)
 
 #plot CIM GDM
 plot(out61_cim.em, out62_cim.em, out63_cim.em, show.marker.names=F,col =c("Black", "blue", "red"))
@@ -1288,191 +870,8 @@ plot(out76_cim.em, out77_cim.em, out78_cim.em, show.marker.names=F,chr="7", col 
 abline(3.91, 0, untf = FALSE)
 title(main = "LH82 - Grain Total Nitrogen - Chr 7")
 
-#plot CIM blup_noparents SC
-plot(out5_cim.em, show.marker.names=F,col =c("purple")) #SC
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Stand Count")
-summary(out5_cim.em, threshold=3.91)
-plot(out5_cim.em, show.marker.names=F,chr="1", col =c("purple")) #SC
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Stand Count - Chr 1")
 
-#Regression SC
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_SC <- makeqtl(mapthis, chr=c(1), pos=c(213)) 
-summary(out.qtl_SC <- fitqtl(mapthis, qtl=qtl_SC, pheno.col=5, formula=y~Q1)) 
-
-#plot CIM blup_noparents DT
-plot(out11_cim.em, show.marker.names=F,col =c("purple")) #DT
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Days to Tassel Emergence")
-summary(out11_cim.em, threshold=3.91)
-plot(out11_cim.em, show.marker.names=F,chr="8", col =c("purple")) #DT
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Days to Tassel Emergence - Chr 8")
-
-#Regression DT
-#There were no LOD peaks above the threshold.
-#mapthis <- sim.geno(mapthis, n.draws=128)
-#qtl_DT <- makeqtl(mapthis, chr=c(5), pos=c(132))
-#summary(out.qtl_DT <- fitqtl(mapthis, qtl=qtl_DT, pheno.col=11, formula=y~Q1))
-
-#plot CIM blup_noparents DPS
-plot(out17_cim.em, show.marker.names=F,col =c("purple")) #DPS
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Days to Pollen Shed")
-summary(out17_cim.em, threshold=3.91)
-
-#Regression DPS
-#There were no LOD peaks above the threshold.
-
-#plot CIM blup_noparents T1
-plot(out23_cim.em, show.marker.names=F,col =c("purple")) #15NT1
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - 15N Time-point 1")
-summary(out23_cim.em, threshold=3.91)
-plot(out23_cim.em, show.marker.names=F,chr="2", col =c("purple")) #15NT1
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - 15N Time-point 1 - Chr 2")
-
-#Regression T1
-#There were no LOD peaks above the threshold.
-#mapthis <- sim.geno(mapthis, n.draws=128)
-#qtl_T1 <- makeqtl(mapthis, chr=c(2), pos=c(82.6)) 
-#summary(out.qtl_T1 <- fitqtl(mapthis, qtl=qtl_T1, pheno.col=23, formula=y~Q1))
-
-#plot CIM blup_noparents T2
-plot(out29_cim.em, show.marker.names=F,col =c("purple")) #15NT2
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - 15N Time-point 2")
-summary(out29_cim.em, threshold=3.91)
-
-#Regression T2
-#There were no LOD peaks above the threshold.
-
-#plot CIM blup_noparents T3
-plot(out35_cim.em, show.marker.names=F,col =c("purple")) #15NT3
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - 15N Time-point 3")
-summary(out35_cim.em, threshold=3.91)
-
-#Regression T3
-#There were no LOD peaks above the threshold.
-
-#plot CIM blup_noparents AR
-plot(out41_cim.em, show.marker.names=F,col =c("purple")) #AR
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Aerial Root Nodes")
-summary(out41_cim.em, threshold=3.91)
-plot(out41_cim.em, show.marker.names=F,chr="1", col =c("purple")) #AR
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Aerial Root Nodes - Chr 1")
-plot(out41_cim.em, show.marker.names=F,chr="2", col =c("purple")) #AR
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Aerial Root Nodes - Chr 2")
-plot(out41_cim.em, show.marker.names=F,chr="9", col =c("purple")) #AR
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Aerial Root Nodes - Chr 9")
-
-#Regression AR
-mapthis <- sim.geno(mapthis, n.draws=128)
-qtl_AR <- makeqtl(mapthis, chr=c(1), pos=c(251.5))
-#qtl_AR <- makeqtl(mapthis, chr=c(2), pos=c(103))
-qtl_AR <- makeqtl(mapthis, chr=c(9), pos=c(97.1))
-summary(out.qtl_AR <- fitqtl(mapthis, qtl=qtl_AR, pheno.col=41, formula=y~Q1)) 
-
-#plot CIM blup_noparents PDM
-plot(out47_cim.em, show.marker.names=F,col =c("purple")) #PDM
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Plant Dry Mass")
-summary(out47_cim.em, threshold=3.91)
-plot(out47_cim.em, show.marker.names=F,chr="9", col =c("purple")) #PDM
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Plant Dry Mass - Chr 9")
-plot(out47_cim.em, show.marker.names=F,chr="10", col =c("purple")) #PDM
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Plant Dry Mass - Chr 10")
-
-#Regression PDM
-mapthis <- sim.geno(mapthis, n.draws=128)
-#qtl_PDM <- makeqtl(mapthis, chr=c(9), pos=c(110)) 
-qtl_PDM <- makeqtl(mapthis, chr=c(10), pos=c(185))
-summary(out.qtl_PDM <- fitqtl(mapthis, qtl=qtl_PDM, pheno.col=47, formula=y~Q1)) 
-
-#plot CIM blup_noparents PTNP
-plot(out53_cim.em, show.marker.names=F,col =c("purple")) #PTNP
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Plant Total Nitrogen Percentage")
-summary(out53_cim.em, threshold=3.91)
-plot(out53_cim.em, show.marker.names=F,chr="1", col =c("purple")) #PTNP
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Plant Total Nitrogen Percentage - Chr 1")
-plot(out53_cim.em, show.marker.names=F,chr="9", col =c("purple")) #PTNP
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Plant Total Nitrogen Percentage - Chr 9")
-
-#Regression PTNP
-#There were no LOD peaks above the threshold.
-#mapthis <- sim.geno(mapthis, n.draws=128)
-#qtl_PTNP <- makeqtl(mapthis, chr=c(1), pos=c(212)) 
-#qtl_PTNP <- makeqtl(mapthis, chr=c(9), pos=c(33.8)) 
-#summary(out.qtl_PTNP <- fitqtl(mapthis, qtl=qtl_PTNP, pheno.col=53, formula=y~Q1)) 
-
-#plot CIM blup_noparents PTN
-plot(out59_cim.em, show.marker.names=F,col =c("purple")) #PTN
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Plant Total Nitrogen")
-summary(out59_cim.em, threshold=3.91)
-
-#Regression PTN
-#There were no LOD peaks above the threshold.
-
-#plot CIM blup_noparents GDM
-plot(out65_cim.em, show.marker.names=F,col =c("purple")) #GDM
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Grain Dry Mass")
-summary(out65_cim.em, threshold=3.91)
-plot(out65_cim.em, show.marker.names=F,chr="7", col =c("purple")) #GDM
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Grain Dry Mass - Chr 7")
-
-#Regression GDM
-#There were no LOD peaks above the threshold.
-#mapthis <- sim.geno(mapthis, n.draws=128)
-#qtl_GDM <- makeqtl(mapthis, chr=c(6), pos=c(111))
-#summary(out.qtl_GDM <- fitqtl(mapthis, qtl=qtl_GDM, pheno.col=65, formula=y~Q1)) 
-
-#plot CIM blup_noparents GTNP
-plot(out71_cim.em, show.marker.names=F,col =c("purple")) #GTNP
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Grain Total Nitrogen Percentage")
-summary(out71_cim.em, threshold=3.91)
-plot(out71_cim.em, show.marker.names=F,chr="10", col =c("purple")) #GTNP
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Grain Total Nitrogen Percentage")
-
-#Regression GTNP
-#There were no LOD peaks above the threshold.
-#mapthis <- sim.geno(mapthis, n.draws=128)
-#qtl_GTNP <- makeqtl(mapthis, chr=c(10), pos=c(92.7)) 
-#summary(out.qtl_GTNP <- fitqtl(mapthis, qtl=qtl_GTNP, pheno.col=71, formula=y~Q1))
-
-#plot CIM blup_noparents GTN
-plot(out77_cim.em, show.marker.names=F,col =c("purple")) #GTN
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Grain Total Nitrogen")
-summary(out77_cim.em, threshold=3.91)
-plot(out77_cim.em, show.marker.names=F,chr="7", col =c("purple")) #GTN
-abline(3.91, 0, untf = FALSE)
-title(main = "LH82 - Grain Total Nitrogen - Chr 7")
-
-#Regression GTN
-#There were no LOD peaks above the threshold.
-#mapthis <- sim.geno(mapthis, n.draws=128)
-#qtl_GTN <- makeqtl(mapthis, chr=c(7), pos=c(110)) 
-#summary(out.qtl_GTN <- fitqtl(mapthis, qtl=qtl_GTN, pheno.col=77, formula=y~Q1))
-
-#lodint and bayesint for non-refined QTL SC
+#lodint and bayesint for QTL SC
 lodint(out1_cim.em, chr=1, expandtomarkers=TRUE)
 bayesint(out1_cim.em, chr=1, expandtomarkers=TRUE)
 lodint(out2_cim.em, chr=1, expandtomarkers=TRUE)
@@ -1486,11 +885,11 @@ bayesint(out5_cim.em, chr=1, expandtomarkers=TRUE)
 lodint(out6_cim.em, chr=1, expandtomarkers=TRUE)
 bayesint(out6_cim.em, chr=1, expandtomarkers=TRUE)
 
-#lodint and bayesint for non-refined QTL DPS
+#lodint and bayesint for QTL DPS
 lodint(out15_cim.em, chr=10, expandtomarkers=TRUE)
 bayesint(out15_cim.em, chr=10, expandtomarkers=TRUE)
 
-#lodint and bayesint for non-refined QTL AR
+#lodint and bayesint for QTL AR
 lodint(out37_cim.em, chr=1, expandtomarkers=TRUE)
 bayesint(out37_cim.em, chr=1, expandtomarkers=TRUE)
 lodint(out37_cim.em, chr=9, expandtomarkers=TRUE)
@@ -1510,7 +909,7 @@ bayesint(out42_cim.em, chr=1, expandtomarkers=TRUE)
 lodint(out42_cim.em, chr=9, expandtomarkers=TRUE)
 bayesint(out42_cim.em, chr=9, expandtomarkers=TRUE)
 
-#lodint and bayesint for non-refined QTL PDM
+#lodint and bayesint for QTL PDM
 lodint(out46_cim.em, chr=10, expandtomarkers=TRUE)
 bayesint(out46_cim.em, chr=10, expandtomarkers=TRUE)
 lodint(out47_cim.em, chr=10, expandtomarkers=TRUE)
@@ -1518,11 +917,11 @@ bayesint(out47_cim.em, chr=10, expandtomarkers=TRUE)
 lodint(out48_cim.em, chr=10, expandtomarkers=TRUE)
 bayesint(out48_cim.em, chr=10, expandtomarkers=TRUE)
 
-#lodint and bayesint for non-refined QTL PTNP
+#lodint and bayesint for QTL PTNP
 lodint(out50_cim.em, chr=1, expandtomarkers=TRUE)
 bayesint(out50_cim.em, chr=1, expandtomarkers=TRUE)
 
-#lodint and bayesint for non-refined QTL PTN
+#lodint and bayesint for QTL PTN
 lodint(out57_cim.em, chr=9, expandtomarkers=TRUE)
 bayesint(out57_cim.em, chr=9, expandtomarkers=TRUE)
 
