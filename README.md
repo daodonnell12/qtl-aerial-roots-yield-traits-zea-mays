@@ -58,6 +58,10 @@
 ##Genotypes and phenotypes file for Totontepec x MO17 population for QTL mapping.
 
 
+#Genetic-Maps.xlsx
+##Genetic maps corresponding to bi-parental populations derived from 'Totontepec x B73' (tab 1), 'Totontepec x LH82' (tab 2), and 'Totontepec x MO17' (tab 3).
+
+
 #2025_0831_QTL_figure_script-update.R
 ##Code to generate Figure 4, 'QTL and Elevated Mexicana Introgression into Totontepec Maize'.
 ##Code includes precise start and end bp coordinates for all QTL and elevated introgression regions.
