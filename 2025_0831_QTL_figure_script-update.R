@@ -28,7 +28,7 @@ library("png")
 #sample_cns <- structure(list(gene = c("SC_1_LH82", "SC_3_B73", "SC_9_MO17", "DPS_3_MO17", 
 #                                      "DPS_8_MO17", "DPS_10_B73", "AR_1_LH82", "AR_9_LH82", 
 #                                      "AR_9_MO17", "PTNP_1_MO17", "PTN_2_B73", "PDM_4_MO17", "PDM_10_LH82", 
-#                                      "GTN_GDM_1_MO17"), 
+#                                      "GDM_1_MO17"), 
 #                                      chromosome = c("chr1", "chr3", "chr9", "chr3", "chr8", 
 #                                      "chr10", "chr1", "chr9", "chr9", "chr1", "chr2", "chr4", "chr10", "chr1"), 
 #                                      start = c(258353240L, 10683505, 22782253L, 209024681L, 
@@ -40,11 +40,11 @@ library("png")
 #                                                          5813154L), cn = c(1L, 1L, 1L, 1L, 1L, 1L, 1L, 
 #                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L), 
 #                                                          Trait = c("SC", "SC", "SC", "DPS", "DPS", "DPS", "AR", 
-#                                                          "AR", "AR", "PTNP", "PTN", "PDM", "PDM", "GTN_GDM")), 
+#                                                          "AR", "AR", "PTNP", "PTN", "PDM", "PDM", "GDM")), 
 #                                                          .Names = c("gene", "chromosome", "start", "end", "cn", "Trait"), 
 #                                                          row.names = c(NA, 14L), class = "data.frame")
 
-sample_cns <- structure(list(gene = c("5.04, 17.9%", "3.88, 17.1%", "5.65, 15.0%", "4.35, 18.1%", 
+sample_cns <- structure(list(gene = c("5.04, 17.9%", "4.49, 17.2%", "5.65, 15.0%", "4.35, 18.1%", 
                                       "6.23, 44.1%", "5.50, 28.0%", "6.25, 18.4%", "4.27, 18.9%", 
                                       "4.20, 21.6%", "4.44, 29.7%", "6.30, 32.3%", "3.91, 19.0%", "4.07, 14.8%", 
                                       "4.32, 32.80%"), 
@@ -53,19 +53,19 @@ sample_cns <- structure(list(gene = c("5.04, 17.9%", "3.88, 17.1%", "5.65, 15.0%
                                       start = c(258353240L, 10683505, 22782253L, 209024681L, 
                                        118971709L, 100252518L, 293329598L, 33670979L,
                                        131569767L, 43756650L, 4990077L, 67143858L, 147811484L, 
-                                       3408430L), end = c(268813141L, 162587460L, 119839322L, 
+                                       3408430L), end = c(268813141L, 33744243L, 119839322L, 
                                                           219411033L, 143492696L, 128967696L, 295309095L, 
                                                           111431608L, 143804017L, 71127215L, 5565686L, 237313637L, 148581023L, 
                                                           5813154L), cn = c(1L, 1L, 1L, 1L, 1L, 1L, 1L, 
                                                                             1L, 1L, 1L, 1L, 1L, 1L, 1L), 
                                       Key = c("QTL_SC", "QTL_SC", "QTL_SC", "QTL_DPS", "QTL_DPS", "QTL_DPS", "QTL_AR", 
-                                       "QTL_AR", "QTL_AR", "QTL_PTNP", "QTL_PTN", "QTL_PDM", "QTL_PDM", "QTL_GTN_GDM")), 
+                                       "QTL_AR", "QTL_AR", "QTL_PTNP", "QTL_PTN", "QTL_PDM", "QTL_PDM", "QTL_GDM")), 
                                       .Names = c("gene", "chromosome", "start", "end", "cn", "Key"), 
                                        row.names = c(NA, 14L), class = "data.frame")
 
 #     QTL_Name	chromosome	    start	      end	cn	Key   LOD   %Variance
 # 1	  SC_1_LH82	      chr1	258353240	268813141	1	  SC      5.04  17.86
-# 2	  SC_3_B73	      chr3	10683505	162587460	1	  SC      3.88  17.06
+# 2	  SC_3_B73	      chr3	10683505	33744243	1	  SC      4.49  17.17
 # 3	  SC_9_MO17	      chr9	22782253	119839322	1	  SC      5.65  15.03
 # 4	  DPS_1_MO17	    chr3	209024681	219411033	1	  DPS     4.35  18.06
 # 5	  DPS_8_MO17	    chr8	118971709	143492696	1	  DPS     6.23  44.13
@@ -77,7 +77,7 @@ sample_cns <- structure(list(gene = c("5.04, 17.9%", "3.88, 17.1%", "5.65, 15.0%
 # 11	PTN_2_B73	      chr2	4990077	  5565686	  1	  PTN     6.30  32.32
 # 12	PDM_4_MO17	    chr4	67143858	237313637	1	  PDM     3.91  19.00
 # 13	PDM_10_LH82	    chr10	147811484	148581023	1	  PDM     4.07  14.80
-# 14	GTN_GDM_1_MO17	chr1	3408430	  5813154	  1	  GTN_GDM 4.32  32.80
+# 14	GDM_1_MO17	    chr1	3408430	  5813154	  1	  GDM     4.32  32.80
 
 # hg19 chromosome sizes
 chrom_sizes <- structure(list(chromosome = c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", 
@@ -177,7 +177,7 @@ centromeres[["chromosome"]] <- factor(x = centromeres[["chromosome"]],
 introgression[["chromosome"]] <- factor(x = introgression[["chromosome"]], 
                                       levels = chrom_order)
 # create a color key for the plot
-group.colors <- c(QTL_SC = "purple", QTL_DPS = "orange", QTL_AR = "green", QTL_PTNP = "blue", QTL_PTN = "sky blue", QTL_PDM = "dark blue", QTL_GTN_GDM = "brown", Introgression_mexicana = "red")
+group.colors <- c(QTL_SC = "purple", QTL_DPS = "orange", QTL_AR = "green", QTL_PTNP = "blue", QTL_PTN = "sky blue", QTL_PDM = "dark blue", QTL_GDM = "brown", Introgression_mexicana = "red")
 
 #Make Plot
 ggplot(data = chrom_sizes) + 
@@ -237,8 +237,8 @@ ggplot(data = chrom_sizes) +
   geom_text(data = subset(sample_cns, sample_cns$Key == "PDM"), 
                   aes(x = chromosome, y = start, label = gene ), nudge_x = c(-0.35),
                   color = "black", show.legend = FALSE) +
-  # add 'GTN_GDM' gene markers
-  geom_text(data = subset(sample_cns, sample_cns$Key == "GTN_GDM"), 
+  # add 'GDM' gene markers
+  geom_text(data = subset(sample_cns, sample_cns$Key == "GDM"), 
 #                  aes(x = chromosome, y = end, label = gene ), nudge_x = c(-0.35),
                   aes(x = chromosome, y = start, label = gene ), nudge_x = c(-0.35),
                   color = "black", show.legend = FALSE) +
