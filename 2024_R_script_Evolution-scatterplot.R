@@ -1,5 +1,7 @@
 setwd("~/Documents/Dissertation/Publication/Publication_Excel-files/")
-Evolution <- read.csv("2023_Evolution_Metadata_Averages_Final_for-R-figure.csv")
+#Evolution <- read.csv("2023_Evolution_Metadata_Averages_Final_for-R-figure.csv") #old file including outliers from spatial effects
+#Evolution <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure.csv") #new file excluding outliers from spatial effects
+Evolution <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure_v2.csv") #new file excluding outliers from spatial effects, and w/ B73 x Mo17 grand mean only
 Evolution
 print(Evolution)
 
@@ -33,6 +35,7 @@ install.packages("grid")
 install.packages("cowplot")
 install.packages("gtable")
 install.packages("gridtext")
+install.packages("gridGraphics")
 library("tidyverse")
 library("ggplot2")
 library("gridExtra")
@@ -40,8 +43,9 @@ library("cowplot")
 library("gtable")
 library("gridtext")
 library("grid")
+library("gridGraphics")
 
-Zea_Trial_1 <- read.csv("2023_Evolution_Metadata_Averages_Final_for-R-figure.csv")
+Zea_Trial_1 <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure_v2.csv")
 
 #plot_NDFA_T1_B73 <- ggplot(Zea_Trial_1, aes(Zea_Trial_1$Group, Zea_Trial_1$NDFA_T1_B73.ref_Mean), scale="globalminmax") +
   #geom_vline(xintercept = 0, linetype = 2) +
@@ -80,25 +84,15 @@ plot_NDFA_T1_B73_1 <- ggplot(Zea_Trial_1,aes(x=Name,y=NDFA_T1_B73.ref_Mean,col=G
                 position=position_dodge(.9)) +
   geom_point(shape = 1) +
   theme_minimal() +
-  theme(axis.text.x=element_blank()) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)) +
+  #theme(axis.text.x=element_blank()) +
+  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) +
   labs(y= "Percent NDFA", x = "Group")
 
 plot_NDFA_T1_B73_1
 legend = cowplot::get_plot_component(plot_NDFA_T1_B73_1, 'guide-box-right', return_all = TRUE)
 legend <- cowplot::ggdraw(legend)
 legend
-
-plot_Trait <- ggplot(Zea_Trial_1,aes(x=Name,y=Trait,shape=Trait))+geom_point() +
-  geom_vline(xintercept = 0, linetype = 2) +
-  geom_hline(yintercept = 0, linetype = 2) +
-  theme_minimal() +
-  theme(axis.text.x=element_blank()) +
-  labs(y= "Trait", x = "Group")
-
-plot_Trait
-legend2 = cowplot::get_plot_component(plot_Trait, 'guide-box-right', return_all = TRUE)
-legend2 <- cowplot::ggdraw(legend2)
-legend2
 
 plot_NDFA_T1_B73 <- ggplot(Zea_Trial_1,aes(x=Name,y=NDFA_T1_B73.ref_Mean,col=Group))+geom_point() +
   geom_vline(xintercept = 0, linetype = 2) +
@@ -107,10 +101,14 @@ plot_NDFA_T1_B73 <- ggplot(Zea_Trial_1,aes(x=Name,y=NDFA_T1_B73.ref_Mean,col=Gro
                 position=position_dodge(.9)) +
   #coord_fixed(ratio = .1) +
   geom_point(shape = 1) +
-  ylim(-36,120) +
+  ylim(-40,120) + #if using B73xMo17 grand mean
+#  ylim(-60,120) + #if using B73xMo17 ind. checks
   theme_minimal() +
-  theme(axis.text.x=element_blank()) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)) +
+#  theme(axis.text.x=element_blank()) +
   #labs(y = NULL, x = "Group") +
+#  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale including individual check plots
+  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale excluding individual check plots and including only check grand mean
   labs(y = NULL, x = NULL) +
   panel_border(color = "black") +
   theme(panel.grid.major.x = element_blank()) +
@@ -144,10 +142,14 @@ plot_AR_Nodes_Mean <- ggplot(Zea_Trial_1,aes(x=Name,y=AR_Nodes_Mean,col=Group))+
                 position=position_dodge(.9)) +
   #coord_fixed(ratio = 1.95) +
   geom_point(shape = 2) +
-  ylim(-1.8,6) +
+  #ylim(-1.8,6) + #if using B73xMo17 grand mean
+  ylim(0,6) + #if using B73xMo17 ind. checks
   theme_minimal() +
-  theme(axis.text.x=element_blank()) +
-  #labs(y = NULL, x = "Group") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)) +
+#  theme(axis.text.x=element_blank()) +
+  labs(y = NULL, x = "Group") +
+#  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale including individual check plots
+  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale excluding individual check plots and including only check grand mean
   labs(y = NULL, x = NULL) +
   panel_border(color = "black") +
   theme(panel.grid.major.x = element_blank()) +
@@ -164,12 +166,31 @@ plot_AR_Nodes_Mean <- ggplot(Zea_Trial_1,aes(x=Name,y=AR_Nodes_Mean,col=Group))+
 
 plot_AR_Nodes_Mean
 
+plot_Trait <- ggplot(Zea_Trial_1,aes(x=Name,y=Trait,shape=Trait))+geom_point() +
+  geom_vline(xintercept = 0, linetype = 2) +
+  geom_hline(yintercept = 0, linetype = 2) +
+  theme_minimal() +
+  theme(axis.text.x=element_blank()) +
+  labs(y= "Trait", x = "Group")
+
+plot_Trait
+legend2 = cowplot::get_plot_component(plot_Trait, 'guide-box-right', return_all = TRUE)
+legend2 <- cowplot::ggdraw(legend2)
+legend2
+
+blank_grob <- grid.rect(gp = gpar(col = "white"))
+blank_grob2 <- grid.rect(gp = gpar(col = "white"))
+
+legend3 <- grid.arrange(blank_grob, legend, legend2, blank_grob2, ncol = 1)
+legend3
+
 #Group <- textGrob("Group", gp = gpar(fontsize = 14), hjust = 1.5, vjust = -10)
-Group <- textGrob("Group", gp = gpar(fontsize = 14), hjust = 2.7, vjust = 0.2)
+Group <- textGrob("Group", gp = gpar(fontsize = 14), hjust = 1.8, vjust = 0.2)
 Mean <- textGrob("Mean", gp = gpar(fontsize = 14), rot=90, vjust = 1)
 
 #plot_grid(plot_NDFA_T1_B73, plot_AR_Nodes_Mean, labels=c("A", "B"), ncol = 2, nrow = 1)
-grid.arrange(plot_NDFA_T1_B73, plot_AR_Nodes_Mean, legend, legend2, ncol = 4, widths=c(2.3, 2.3, 0.8, 0.8), nrow = 1, bottom = Group, left = Mean)
+grid.arrange(plot_NDFA_T1_B73, plot_AR_Nodes_Mean, legend3, ncol = 3, widths=c(2.3, 2.3, 0.8), nrow = 1, bottom = Group, left = Mean)
+grid.arrange(plot_NDFA_T1_B73, plot_AR_Nodes_Mean, legend3, ncol = 3, widths=c(2.3, 2.3, 0.8), nrow = 1, bottom = Group)
 #grid.arrange(plot_NDFA_T1_B73, legend, plot_AR_Nodes_Mean, ncol = 2, widths=c(2.3, 0.8), nrow = 2, heights=c(10, 10))
 #plots <- grid.arrange(plot_NDFA_T1_B73, plot_AR_Nodes_Mean, legend, ncol = 3, widths=c(2.3, 2.3, 0.8), nrow = 1)
 #plots
