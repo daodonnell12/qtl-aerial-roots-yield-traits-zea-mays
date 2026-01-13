@@ -1,7 +1,8 @@
 setwd("~/Documents/Dissertation/Publication/Publication_Excel-files/")
 #Evolution <- read.csv("2023_Evolution_Metadata_Averages_Final_for-R-figure.csv") #old file including outliers from spatial effects
-#Evolution <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure.csv") #new file excluding outliers from spatial effects
-Evolution <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure_v2.csv") #new file excluding outliers from spatial effects, and w/ B73 x Mo17 grand mean only
+#Evolution <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure.csv") #new file excluding outliers from spatial effects, and including individual check plots
+#Evolution <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure_v2.csv") #new file excluding outliers from spatial effects, and w/ B73 x Mo17 grand mean only
+Evolution <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure_v3.csv") #new file excluding outliers from spatial effects, and with ind. check plots, ordered by group and then alphabetical order
 Evolution
 print(Evolution)
 
@@ -45,7 +46,7 @@ library("gridtext")
 library("grid")
 library("gridGraphics")
 
-Zea_Trial_1 <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure_v2.csv")
+Zea_Trial_1 <- read.csv("2024_Evolution_Metadata_Averages_Final_for-R-figure_v3.csv")
 
 #plot_NDFA_T1_B73 <- ggplot(Zea_Trial_1, aes(Zea_Trial_1$Group, Zea_Trial_1$NDFA_T1_B73.ref_Mean), scale="globalminmax") +
   #geom_vline(xintercept = 0, linetype = 2) +
@@ -86,12 +87,18 @@ plot_NDFA_T1_B73_1 <- ggplot(Zea_Trial_1,aes(x=Name,y=NDFA_T1_B73.ref_Mean,col=G
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)) +
   #theme(axis.text.x=element_blank()) +
-  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) +
+  ##if alphabetical order, below
+  #scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) +
+  ##if in order of NDFA, greatest to smallest, by group, then below
+  #scale_x_discrete(labels = c("Jaltepec de Candayoc", "San Marcos Moctum", "San Ildefonso Villa Alta", "Santa Maria Temaxcalapa", "Jala, Nayarit", "San Juan Comaltepec", "San Cristobal Lachirioag", "Santiago Choapam", "San Jose Chinantequilla", "Santiago Tepitongo", "Santa Maria Tiltepec", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Totontepec cultivar 2", "San Miguel Metepec", "Totontepec cultivar 1", "Z. mays L. spp. mexicana", "Z. diploperennis", "Z. mays L. spp. parviglumis", "Mo17", "B73", "Hickory King", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)")) +
+  ##if order by group, then alphabetical, with ind. checks at end, then below
+  scale_x_discrete(labels = c("Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis", "B73", "Hickory King", "Mo17", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)")) +
   labs(y= "Percent NDFA", x = "Group")
 
 plot_NDFA_T1_B73_1
 legend = cowplot::get_plot_component(plot_NDFA_T1_B73_1, 'guide-box-right', return_all = TRUE)
 legend <- cowplot::ggdraw(legend)
+
 legend
 
 plot_NDFA_T1_B73 <- ggplot(Zea_Trial_1,aes(x=Name,y=NDFA_T1_B73.ref_Mean,col=Group))+geom_point() +
@@ -101,14 +108,20 @@ plot_NDFA_T1_B73 <- ggplot(Zea_Trial_1,aes(x=Name,y=NDFA_T1_B73.ref_Mean,col=Gro
                 position=position_dodge(.9)) +
   #coord_fixed(ratio = .1) +
   geom_point(shape = 1) +
-  ylim(-40,120) + #if using B73xMo17 grand mean
-#  ylim(-60,120) + #if using B73xMo17 ind. checks
+#  ylim(-40,120) + #if using B73xMo17 grand mean
+  ylim(-60,120) + #if using B73xMo17 ind. checks
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)) +
 #  theme(axis.text.x=element_blank()) +
   #labs(y = NULL, x = "Group") +
-#  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale including individual check plots
-  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale excluding individual check plots and including only check grand mean
+  ##if alphabetical order, below
+  #scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale including individual check plots
+  ##if alphabetical order with only grand mean, below  
+  #scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale excluding individual check plots and including only check grand mean
+  ##if in order of NDFA, greatest to smallest, by group, then below
+  #scale_x_discrete(labels = c("Jaltepec de Candayoc", "San Marcos Moctum", "San Ildefonso Villa Alta", "Santa Maria Temaxcalapa", "Jala, Nayarit", "San Juan Comaltepec", "San Cristobal Lachirioag", "Santiago Choapam", "San Jose Chinantequilla", "Santiago Tepitongo", "Santa Maria Tiltepec", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Totontepec cultivar 2", "San Miguel Metepec", "Totontepec cultivar 1", "Z. mays L. spp. mexicana", "Z. diploperennis", "Z. mays L. spp. parviglumis", "Mo17", "B73", "Hickory King", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)")) +
+  ##if order by group, then alphabetical, with ind. checks at end, then below
+  scale_x_discrete(labels = c("Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis", "B73", "Hickory King", "Mo17", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)")) +
   labs(y = NULL, x = NULL) +
   panel_border(color = "black") +
   theme(panel.grid.major.x = element_blank()) +
@@ -148,8 +161,14 @@ plot_AR_Nodes_Mean <- ggplot(Zea_Trial_1,aes(x=Name,y=AR_Nodes_Mean,col=Group))+
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1)) +
 #  theme(axis.text.x=element_blank()) +
   labs(y = NULL, x = "Group") +
-#  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale including individual check plots
-  scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "Moctum", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale excluding individual check plots and including only check grand mean
+  ##if alphabetical order, below
+  #scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale including individual check plots
+  ##if alphabetical order with only grand mean, below
+  #scale_x_discrete(labels = c("San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "B73", "B73 x Mo17 (Avg.*)", "Hickory King", "Mo17", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis")) + #scale excluding individual check plots and including only check grand mean
+  ##if in order of NDFA, greatest to smallest, by group, then below
+  #scale_x_discrete(labels = c("Jaltepec de Candayoc", "San Marcos Moctum", "San Ildefonso Villa Alta", "Santa Maria Temaxcalapa", "Jala, Nayarit", "San Juan Comaltepec", "San Cristobal Lachirioag", "Santiago Choapam", "San Jose Chinantequilla", "Santiago Tepitongo", "Santa Maria Tiltepec", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Totontepec cultivar 2", "San Miguel Metepec", "Totontepec cultivar 1", "Z. mays L. spp. mexicana", "Z. diploperennis", "Z. mays L. spp. parviglumis", "Mo17", "B73", "Hickory King", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)")) +
+  ##if order by group, then alphabetical, with ind. checks at end, then below
+  scale_x_discrete(labels = c("Jala, Nayarit", "Jaltepec de Candayoc", "San Cristobal Lachirioag", "San Ildefonso Villa Alta", "San Jose Chinantequilla", "San Juan Comaltepec", "San Marcos Moctum", "Santa Maria Temaxcalapa", "Santiago Choapam", "Santiago Tepitongo", "San Miguel Metepec", "Santa Maria Tiltepec", "Totontepec cultivar 1", "Totontepec cultivar 2", "Tototepec cultivar 3", "Venustiano Carranza, DG", "Z. diploperennis", "Z. mays L. spp. mexicana", "Z. mays L. spp. parviglumis", "B73", "Hickory King", "Mo17", "B73 x Mo17 (1A)", "B73 x Mo17 (1D)", "B73 x Mo17 (3C)", "B73 x Mo17 (5B)", "B73 x Mo17 (7A)", "B73 x Mo17 (7D)", "B73 x Mo17 (Avg.*)")) +
   labs(y = NULL, x = NULL) +
   panel_border(color = "black") +
   theme(panel.grid.major.x = element_blank()) +
