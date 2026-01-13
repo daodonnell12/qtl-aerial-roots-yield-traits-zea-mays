@@ -17,7 +17,7 @@
 ##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 1, using plant position in the field (latitude and longitude coordinates) as fixed effect and genotype as random effect.
 
 
-#Zea-Trial-1_NDFA-AR_Table
+#2024_Evolution_Metadata_Averages_Final_for-R-figure_v3
 ##NDFA and AR trait values (average and standard error) table,  used in conjunction with R code '2024_R_script_Evolution-scatterplot', to generate Figure 3, '%NDFA and Aerial Root Node Variation among Zea Subgroups'.
 
 
