@@ -5,11 +5,11 @@
 #Here below are ##descriptions for each #file included in the repository.
 
 
-#Zea-Trial-1_Metadata_Averages.xlsx
+#Zea-Trial-1_Metadata_Averages_Final.xlsx
 ##Trait data (plot averages and standard error) for Zea Trial 1 entries.
 
 
-#Zea-Trial-1_Metadata.xlsx
+#Zea-Trial-1_Metadata_Final.xlsx
 ##Zea trial 1 metadata, including all trait data captured for all individual plants per entry, with latitude and longitude position coordinates for each plant. Latitude = row number; longitude = plant position number along the row.
 
 
