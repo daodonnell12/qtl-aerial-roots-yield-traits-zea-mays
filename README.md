@@ -13,6 +13,14 @@
 ##Zea trial 1 metadata, including all trait data captured for all individual plants per entry, with latitude and longitude position coordinates for each plant. Latitude = row number; longitude = plant position number along the row.
 
 
+#Zea-Trial-1_Metadata_Final.csv
+##Zea trial 1 metadata csv file used to make trait correlation scatterplots (Figures S4d-g), together with code 'Zea-Trial-1_Scatterplots.R'.
+
+
+#Zea-Trial-1_Scatterplots.R
+##Code used to make trait correlation scatterplots (FIgures S4d-g).
+
+
 #2025_Zea-Trial-1_Metadata_blup_DAO.R
 ##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 1, using plant position in the field (latitude and longitude coordinates) as fixed effect and genotype as random effect.
 
