@@ -73,3 +73,11 @@
 
 #2025_0803_mex-intro-Tpec_JRI_avg0.5_v2.txt
 ##Regions of elevated mexicana introgression (>0.5) in Totontepec maize, with corresponding bp coordinates.
+
+##Additional script and files used to generate Figure 4B
+#Fig-4B_script_plot_overlap.R
+#Fig-4B_stats_overlap-stats.txt
+#Fig-4B_AR_simulated_overlap.txt
+#Fig-4B_DPS_simulated_overlap.txt
+#Fig-4B_PDM_simulated_overlap.txt
+#Fig-4B_SC_simulated_overlap.txt
