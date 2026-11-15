@@ -17,7 +17,7 @@ library("g3tools")
 
 setwd("/Users/David_ODonnell/Documents/Github/n2qtl/")
 
-pheno <- read.csv("data/QTL_AllFamilies_NoParents.csv", na.strings = c("", "NA", "NULL", "missing"))
+pheno <- read.csv("data/QTL_Pheno-Data_AllFamilies_NoParents.csv", na.strings = c("", "NA", "NULL", "missing"))
 dim(pheno)
 #687  48
 
