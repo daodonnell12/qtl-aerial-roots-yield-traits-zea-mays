@@ -1,31 +1,36 @@
 ### David O'Donnell, adapted from Jinliang Yang
 ### Dec 1st, 2025
 ### data checking
-### Additional customization David O'Donnell
 
 
 ## Install some required packages if have not installed
 
-install.packages("lme4")
+install.packages(c("Matrix","lme4"))
 install.packages("devtools")
 devtools::install_github("jyanglab/g3tools")
 
+library("Matrix")
 library("lme4")
 library("devtools")
 library("g3tools")
 
+setwd("/Users/David_ODonnell/Documents/Github/n2qtl/")
 
-
-pheno <- read.csv("profiling/Zea-Trial-1_Metadata_w-Long-Lat.csv")
+pheno <- read.csv("profiling/Zea-Trial-1_Metadata.csv", na.strings = c("", "NA", "NULL", "missing"))
 dim(pheno)
-#687  33
+#784  22
+
+pheno$NDFA_T1_B73_ref <- as.numeric(pheno$NDFA_T1_B73_ref)
+pheno$NDFA_T2_B73_ref <- as.numeric(pheno$NDFA_T2_B73_ref)
 
 #n2 <- subset(pheno, !is.na(X15NT1))
 
 hist(pheno$d15N_T1, breaks=30)
-hist(pheno$NDFA_T1_B73.ref, breaks=30)
+hist(pheno$NDFA_T1_B73xMo17_ref, breaks=30)
+hist(pheno$NDFA_T1_B73_ref, breaks=30)
 hist(pheno$d15N_T2, breaks=30)
-hist(pheno$NDFA_T2_B73.ref, breaks=30)
+hist(pheno$NDFA_T2_B73xMo17_ref, breaks=30)
+hist(pheno$NDFA_T2_B73_ref, breaks=30)
 hist(pheno$HEIGHT_in, breaks=30)
 hist(pheno$NODES, breaks=30)
 hist(pheno$NODES_w_BR, breaks=30)
@@ -37,246 +42,134 @@ hist(pheno$COBS, breaks=30)
 hist(pheno$SILKS, breaks=30)
 
 
-fit <- get_BLUP(data = pheno, model = d15N_T1 ~ (1 | GROUP) + (1 | Longitude) 
-         + (1 | Latitude), which.factor = "GROUP",
+#BLUP and heritability estimation
+
+fit1 <- get_BLUP(data = pheno, model = d15N_T1 ~ (1 | entry) + (1 | Longitude) 
+         + (1 | Latitude), which.factor = "entry",
          outfile = "data/blup_evolution_d15N_T1.csv")
 
-get_H2(fit, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit1, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                               df=c(1, 1)))
+#0.6101074
 
 
 
-fit2 <- get_BLUP(data = pheno, model = NDFA_T1_B73.ref ~ (1 | GROUP) + (1 | Longitude) 
-                + (1 | Latitude), which.factor = "GROUP",
-                outfile = "data/blup_evolution_NDFA_T1_B73.ref.csv")
+fit2 <- get_BLUP(data = pheno, model = NDFA_T1_B73_ref ~ (1 | entry) + (1 | Longitude) 
+                + (1 | Latitude), which.factor = "entry",
+                outfile = "data/blup_evolution_NDFA_T1_B73_ref.csv")
 
-get_H2(fit2, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit2, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                       df=c(1, 1)))
+#0.5831606
 
 
 
-fit3 <- get_BLUP(data = pheno, model = d15N_T2 ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit3 <- get_BLUP(data = pheno, model = d15N_T2 ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_d15N_T2.csv")
 
-get_H2(fit3, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit3, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.7252177
 
 
 
-fit4 <- get_BLUP(data = pheno, model = NDFA_T2_B73.ref ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_NDFA_T2_B73.ref.csv")
+fit4 <- get_BLUP(data = pheno, model = NDFA_T2_B73_ref ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
+                 outfile = "data/blup_evolution_NDFA_T2_B73_ref.csv")
 
-get_H2(fit4, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit4, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.7251031
 
 
 
-fit5 <- get_BLUP(data = pheno, model = HEIGHT_in ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit5 <- get_BLUP(data = pheno, model = HEIGHT_in ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_HEIGHT_in.csv")
 
-get_H2(fit5, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit5, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.880308
 
 
 
-fit6 <- get_BLUP(data = pheno, model = NODES ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit6 <- get_BLUP(data = pheno, model = NODES ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_NODES.csv")
 
-get_H2(fit6, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit6, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.8669735
 
 
 
-fit7 <- get_BLUP(data = pheno, model = NODES_w_BR ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit7 <- get_BLUP(data = pheno, model = NODES_w_BR ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_NODES_w_BR.csv")
 
-get_H2(fit7, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit7, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.6050732
 
 
 
-fit8 <- get_BLUP(data = pheno, model = NODES_w_AR ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit8 <- get_BLUP(data = pheno, model = NODES_w_AR ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_NODES_w_AR.csv")
 
-get_H2(fit8, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit8, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.5898972
 
 
 
-fit9 <- get_BLUP(data = pheno, model = NODES_w_BRandAR ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit9 <- get_BLUP(data = pheno, model = NODES_w_BRandAR ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_NODES_w_BRandAR.csv")
 
-get_H2(fit9, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit9, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.6239602
 
 
 
-fit10 <- get_BLUP(data = pheno, model = DAYS_TO_TASSEL ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit10 <- get_BLUP(data = pheno, model = DAYS_TO_TASSEL ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_DAYS_TO_TASSEL.csv")
 
-get_H2(fit10, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit10, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.9030854
 
 
 
-fit11 <- get_BLUP(data = pheno, model = DAYS_TO_POLLEN ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit11 <- get_BLUP(data = pheno, model = DAYS_TO_POLLEN ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_DAYS_TO_POLLEN.csv")
 
-get_H2(fit11, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit11, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.9125291
 
 
 
-fit12 <- get_BLUP(data = pheno, model = COBS ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit12 <- get_BLUP(data = pheno, model = COBS ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_COBS.csv")
 
-get_H2(fit12, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit12, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.3539288
 
 
 
-fit13 <- get_BLUP(data = pheno, model = SILKS ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude), which.factor = "GROUP",
+fit13 <- get_BLUP(data = pheno, model = SILKS ~ (1 | entry) + (1 | Longitude) 
+                 + (1 | Latitude), which.factor = "entry",
                  outfile = "data/blup_evolution_SILKS.csv")
 
-get_H2(fit13, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
+get_H2(fit13, numerator="entry", denominator=data.frame(f=c("entry", "Residual"),
                                                        df=c(1, 1)))
+#0.1678926
 
-
-
-fit14 <- get_BLUP(data = pheno, model = NODES_w_AR ~ (1 | GROUP) + (1 | Longitude) 
-                  + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                  outfile = "data/blup_evolution_NODES_w_AR_v2.csv")
-
-get_H2(fit14, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                        df=c(1, 1)))
-
-
-
-
-
-fit21 <- get_BLUP(data = pheno, model = d15N_T1 ~ (1 | GROUP) + (1 | Longitude) 
-                + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                outfile = "data/blup_evolution_d15N_T1_v2.csv")
-
-get_H2(fit21, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                      df=c(1, 1)))
-
-
-
-fit22 <- get_BLUP(data = pheno, model = NDFA_T1_B73.ref ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_NDFA_T1_B73.ref_v2.csv")
-
-get_H2(fit22, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit23 <- get_BLUP(data = pheno, model = d15N_T2 ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_d15N_T2_v2.csv")
-
-get_H2(fit23, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit24 <- get_BLUP(data = pheno, model = NDFA_T2_B73.ref ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_NDFA_T2_B73.ref_v2.csv")
-
-get_H2(fit24, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit25 <- get_BLUP(data = pheno, model = HEIGHT_in ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_HEIGHT_in_v2.csv")
-
-get_H2(fit25, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit26 <- get_BLUP(data = pheno, model = NODES ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_NODES_v2.csv")
-
-get_H2(fit26, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit27 <- get_BLUP(data = pheno, model = NODES_w_BR ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_NODES_w_BR_v2.csv")
-
-get_H2(fit27, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit28 <- get_BLUP(data = pheno, model = NODES_w_AR ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_NODES_w_AR_v2.csv")
-
-get_H2(fit28, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit29 <- get_BLUP(data = pheno, model = NODES_w_BRandAR ~ (1 | GROUP) + (1 | Longitude) 
-                 + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                 outfile = "data/blup_evolution_NODES_w_BRandAR_v2.csv")
-
-get_H2(fit29, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                       df=c(1, 1)))
-
-
-
-fit30 <- get_BLUP(data = pheno, model = DAYS_TO_TASSEL ~ (1 | GROUP) + (1 | Longitude) 
-                  + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                  outfile = "data/blup_evolution_DAYS_TO_TASSEL_v2.csv")
-
-get_H2(fit30, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                        df=c(1, 1)))
-
-
-
-fit31 <- get_BLUP(data = pheno, model = DAYS_TO_POLLEN ~ (1 | GROUP) + (1 | Longitude) 
-                  + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                  outfile = "data/blup_evolution_DAYS_TO_POLLEN_v2.csv")
-
-get_H2(fit31, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                        df=c(1, 1)))
-
-
-
-fit32 <- get_BLUP(data = pheno, model = COBS ~ (1 | GROUP) + (1 | Longitude) 
-                  + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                  outfile = "data/blup_evolution_COBS_v2.csv")
-
-get_H2(fit32, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                        df=c(1, 1)))
-
-
-
-fit33 <- get_BLUP(data = pheno, model = SILKS ~ (1 | GROUP) + (1 | Longitude) 
-                  + (1 | Latitude) + (1 | GROUP:Longitude) + (1 | GROUP:Latitude), which.factor = "GROUP",
-                  outfile = "data/blup_evolution_SILKS_v2.csv")
-
-get_H2(fit33, numerator="GROUP", denominator=data.frame(f=c("GROUP", "Residual"),
-                                                        df=c(1, 1)))
 
