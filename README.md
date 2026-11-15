@@ -37,7 +37,7 @@
 ##Phenotype data for Zea Trial 2.
 
 
-#1.A.1_pheno_check_noparents_DAO.R
+#1.A.1_Zea-Trial-2_pheno_check_noparents_DAO.R
 ##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 2, using plant position in the field (latitude and longitude coordinates), genotype and replicate as random effects.
 
 
