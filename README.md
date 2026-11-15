@@ -23,6 +23,7 @@
 
 #2025_Zea-Trial-1_Metadata_blup_DAO.R
 ##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 1, using plant position in the field (latitude and longitude coordinates) and genotype as random effects.
+##Uses file 'Zea-Trial-1_Metadata.csv'.
 
 
 #2024_Evolution_Metadata_Averages_Final_for-R-figure_v4
@@ -39,6 +40,7 @@
 
 #QTL_Zea-Trial-2_blup_h2_DAO.R
 ##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 2, using plant position in the field (latitude and longitude coordinates), genotype and replicate as random effects.
+##Uses file '1_QTL_AllFamilies_NoParents.csv'.
 
 
 #QTL_mapping_code_B73.R
