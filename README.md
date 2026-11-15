@@ -34,13 +34,13 @@
 ##Code to generate Figure 3, '%NDFA and Aerial Root Node Variation among Zea Subgroups', from Zea Trial 1.
 
 
-#1_QTL_AllFamilies_NoParents.csv
-##Phenotype data for Zea Trial 2.
+#QTL_Pheno-Data_AllFamilies_NoParents.csv
+##Phenotype data for Zea Trial 2, including only F2:F3 families. To be used for BLUP and heritability estimation. Raw data file (including parent phenotypes) uploaded separately as 'QTL_Pheno-Data_Raw'.
 
 
 #QTL_Zea-Trial-2_blup_h2_DAO.R
 ##Code for BLUP and heritability estimation for all traits assessed in Zea Trial 2, using plant position in the field (latitude and longitude coordinates), genotype and replicate as random effects.
-##Uses file '1_QTL_AllFamilies_NoParents.csv'.
+##Uses file 'QTL_Pheno-Data_AllFamilies_NoParents.csv'.
 
 
 #QTL_mapping_code_B73.R
