@@ -42,7 +42,7 @@ hist(n2$GTN_percent, breaks=30)
 
 fit1 <- get_BLUP(data = pheno, model = X15NT1 ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
          + (1 | Latitude), which.factor = "Genotype",
-         outfile = "data/blup_noparents_famcov_15NT1.csv")
+         outfile = "data/blup_trial2_15NT1.csv")
 
 get_H2(fit1, numerator="Genotype", denominator=data.frame(f=c("Genotype", "Residual"),
                               df=c(1, 1)))
@@ -52,7 +52,7 @@ get_H2(fit1, numerator="Genotype", denominator=data.frame(f=c("Genotype", "Resid
 
 fit2 <- get_BLUP(data = pheno, model = X15NT2 ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                 + (1 | Latitude), which.factor = "Genotype",
-                outfile = "data/blup_noparents_famcov_15NT2.csv")
+                outfile = "data/blup_trial2_15NT2.csv")
 
 get_H2(fit2, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -63,7 +63,7 @@ get_H2(fit2, numerator="Genotype",
 
 fit3 <- get_BLUP(data = pheno, model = X15NT3 ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_15NT3.csv")
+                 outfile = "data/blup_trial2_15NT3.csv")
 
 get_H2(fit3, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -74,7 +74,7 @@ get_H2(fit3, numerator="Genotype",
 
 fit4 <- get_BLUP(data = pheno, model = DT ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                 + (1 | Latitude), which.factor = "Genotype",
-                outfile = "data/blup_noparents_famcov_DT.csv")
+                outfile = "data/blup_trial2_DT.csv")
 
 get_H2(fit4, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -85,7 +85,7 @@ get_H2(fit4, numerator="Genotype",
 
 fit5 <- get_BLUP(data = pheno, model = DPS ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_DPS.csv")
+                 outfile = "data/blup_trial2_DPS.csv")
 
 get_H2(fit5, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -96,7 +96,7 @@ get_H2(fit5, numerator="Genotype",
 
 fit6 <- get_BLUP(data = pheno, model = AR ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_AR.csv")
+                 outfile = "data/blup_trial2_AR.csv")
 
 get_H2(fit6, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -107,7 +107,7 @@ get_H2(fit6, numerator="Genotype",
 
 fit7 <- get_BLUP(data = pheno, model = SC ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_SC.csv")
+                 outfile = "data/blup_trial2_SC.csv")
 
 get_H2(fit7, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -118,7 +118,7 @@ get_H2(fit7, numerator="Genotype",
 
 fit8 <- get_BLUP(data = pheno, model = PDM ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_PDM.csv")
+                 outfile = "data/blup_trial2_PDM.csv")
 
 get_H2(fit8, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -129,7 +129,7 @@ get_H2(fit8, numerator="Genotype",
 
 fit9 <- get_BLUP(data = pheno, model = PTN ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_PTN.csv")
+                 outfile = "data/blup_trial2_PTN.csv")
 
 get_H2(fit9, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -140,7 +140,7 @@ get_H2(fit9, numerator="Genotype",
 
 fit10 <- get_BLUP(data = pheno, model = PTN_percent ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_PTN_percent.csv")
+                 outfile = "data/blup_trial2_PTN_percent.csv")
 
 get_H2(fit10, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -151,7 +151,7 @@ get_H2(fit10, numerator="Genotype",
 
 fit11 <- get_BLUP(data = pheno, model = GDM ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_GDM.csv")
+                 outfile = "data/blup_trial2_GDM.csv")
 
 get_H2(fit11, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -162,7 +162,7 @@ get_H2(fit11, numerator="Genotype",
 
 fit12 <- get_BLUP(data = pheno, model = GTN ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_GTN.csv")
+                 outfile = "data/blup_trial2_GTN.csv")
 
 get_H2(fit12, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
@@ -173,7 +173,7 @@ get_H2(fit12, numerator="Genotype",
 
 fit13 <- get_BLUP(data = pheno, model = GTN_percent ~ (1 | Genotype) + (1 | Rep) + (1 | Longitude) 
                  + (1 | Latitude), which.factor = "Genotype",
-                 outfile = "data/blup_noparents_famcov_GTN_percent.csv")
+                 outfile = "data/blup_trial2_GTN_percent.csv")
 
 get_H2(fit13, numerator="Genotype",
        denominator=data.frame(f=c("Genotype", "Residual"),
